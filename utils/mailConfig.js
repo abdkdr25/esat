@@ -58,7 +58,7 @@ const sendAppointmentEmail = async (ad, email, tarih, saat) => {
             <div class="wrapper">
                 <!-- Header -->
                 <div class="header">
-                    <h1>Dr. Muhammet Emin Başyıldız</h1>
+                    <h1>Esat Kılınç Diş Kliniği</h1>
                     <p>Diş Sağlığı Kliniği</p>
                 </div>
                 
@@ -82,14 +82,14 @@ const sendAppointmentEmail = async (ad, email, tarih, saat) => {
                     <!-- Location -->
                     <h3 class="location-title">Klinik Adresimiz</h3>
                     <div class="address-box">
-                        <strong>Dr. Muhammet Emin Başyıldız Diş Sağlığı Merkezi</strong><br>
-                        Pırlanta düğün salonu yanı, 60. Yıl, Yavuz Sultan Selim Cd. No:107A<br>
-                        27100 Şahinbey / Gaziantep<br><br>
-                        İletişim: <strong>0535 064 56 84</strong>
+                        <strong>Esat Kılınç Diş Kliniği Diş Sağlığı Merkezi</strong><br>
+                        Pırlanta düğün salonu yanı, Merkez Mah. Atatürk Cad. No:1<br>
+                        27100 Şişli / İstanbul<br><br>
+                        İletişim: <strong>0555 123 45 67</strong>
                     </div>
                     
                     <div style="text-align: center; margin-top: 25px;">
-                        <a href="https://www.google.com/maps/search/?api=1&query=P%C4%B1rlanta+d%C3%BC%C4%9F%C3%BCn+salonu+yan%C4%B1,+60.+Y%C4%B1l,+Yavuz+Sultan+Selim+Cd.+No%3A107A,+27100+%C5%9Eahinbey%2FGaziantep" class="btn-maps" target="_blank">Haritada Konuma Git</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=P%C4%B1rlanta+d%C3%BC%C4%9F%C3%BCn+salonu+yan%C4%B1,+60.+Y%C4%B1l,+Yavuz+Sultan+Selim+Cd.+No%3A107A,+27100+%C5%9Eahinbey%2Fİstanbul" class="btn-maps" target="_blank">Haritada Konuma Git</a>
                     </div>
                 </div>
                 
@@ -112,9 +112,9 @@ const sendAppointmentEmail = async (ad, email, tarih, saat) => {
                 'content-type': 'application/json'
             },
             body: JSON.stringify({
-                sender: { name: 'Dr. Muhammet Emin Başyıldız', email: senderEmail },
+                sender: { name: 'Esat Kılınç Diş Kliniği', email: senderEmail },
                 to: [{ email: email, name: ad }],
-                subject: 'Randevu Talebiniz Alındı | Dr. Muhammet Emin Başyıldız Diş Sağlığı',
+                subject: 'Randevu Talebiniz Alındı | Esat Kılınç Diş Kliniği Diş Sağlığı',
                 htmlContent: htmlContent
             })
         });
