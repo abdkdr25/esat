@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 
 <head>
@@ -103,7 +103,7 @@
                 <a href="hakkimizda.html" class="nav-btn" data-i18n="nav-about">Hakkımızda</a>
                 <a href="hizmetler.html" class="nav-btn active" data-i18n="nav-services">Hizmetler</a>
                 <a href="galeri.html" class="nav-btn" data-i18n="nav-gallery">Galeri</a>
-                <a href="makaleler.html" class="nav-btn" data-i18n="nav-articles">Makaleler</a>
+                <a href="makaleler.html" class="nav-btn" data-i18n="nav-articles">Doktor Köşesi</a>
                 <a href="#contact" class="nav-btn" data-i18n="nav-contact">İletişim</a>
             </nav>
             <div class="header-right">
@@ -146,7 +146,7 @@
                 <a href="hakkimizda.html" class="drawer-nav-btn" data-i18n-nav="about"><i class="fa-solid fa-circle-info"></i> <span data-i18n="nav-about">Hakkımızda</span></a>
                 <a href="hizmetler.html" class="drawer-nav-btn active" data-i18n-nav="services"><i class="fa-solid fa-tooth"></i> <span data-i18n="nav-services">Hizmetler</span></a>
                 <a href="galeri.html" class="drawer-nav-btn" data-i18n-nav="gallery"><i class="fa-solid fa-image"></i> <span data-i18n="nav-gallery">Galeri</span></a>
-                <a href="makaleler.html" class="drawer-nav-btn" data-i18n-nav="articles"><i class="fa-solid fa-newspaper"></i> <span data-i18n="nav-articles">Makaleler</span></a>
+                <a href="makaleler.html" class="drawer-nav-btn" data-i18n-nav="articles"><i class="fa-solid fa-newspaper"></i> <span data-i18n="nav-articles">Doktor Köşesi</span></a>
                 <a href="#contact" class="drawer-nav-btn" data-i18n-nav="contact"><i class="fa-solid fa-location-dot"></i> <span data-i18n="nav-contact">İletişim</span></a>
             </nav>
             
@@ -179,135 +179,26 @@
                 </div>
             </section>
 
-            <!-- SERVICES SECTION (ALL ITEMS) -->
-            <section class="services">
+            <!-- SERVICES SECTION (INTERACTIVE EXPLORER) -->
+            <section class="services" style="background: var(--light); padding: 40px 0 80px;">
                 <div class="container">
-                    <div class="service-grid">
-                        <!-- 1. Muayene ve Teşhis -->
-                        <div class="service-card">
-                            <div class="icon-box">🩺</div>
-                            <h3 data-i18n="s-muayene">Muayene ve Teşhis</h3>
-                            <p data-i18n="s-muayene-desc">Detaylı ağız içi muayene ve radyolojik görüntüleme ile erken teşhis.</p>
-                            <button class="service-link" onclick="openModal('muayene')" data-i18n="btn-detail">Detaylı Bilgi →</button>
+                    <!-- Category Selection Tabs -->
+                    <div class="category-tabs-container">
+                        <button class="category-tab active" onclick="switchCategory('estetik')">Estetik Diş Hekimliği</button>
+                        <button class="category-tab" onclick="switchCategory('cerrahi')">Cerrahi & İmplant</button>
+                        <button class="category-tab" onclick="switchCategory('genel')">Genel/Koruyucu</button>
+                        <button class="category-tab" onclick="switchCategory('ortodonti')">Ortodonti & Çocuk</button>
+                    </div>
+
+                    <!-- Split Panel Explorer -->
+                    <div class="services-explorer">
+                        <!-- Left vertical links -->
+                        <div class="explorer-sidebar" id="explorer-sidebar">
+                            <!-- JS will inject options here -->
                         </div>
-                        <!-- 2. Dental İmplant -->
-                        <div class="service-card">
-                            <div class="icon-box">🔩</div>
-                            <h3 data-i18n="s-implant">Dental İmplant</h3>
-                            <p data-i18n="s-implant-desc">Eksik dişlerin yerine uygulanan, doğal dişe en yakın yapay kök tedavisi.</p>
-                            <button class="service-link" onclick="openModal('implant')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 3. Gülüş Tasarımı -->
-                        <div class="service-card">
-                            <div class="icon-box">✨</div>
-                            <h3 data-i18n="s-gulus">Gülüş Tasarımı</h3>
-                            <p data-i18n="s-gulus-desc">Yüz hatlarınıza en uygun, estetik ve doğal bir gülüşün dijital olarak tasarlanması.</p>
-                            <button class="service-link" onclick="openModal('gulus')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 4. Zirkonyum-Laminate -->
-                        <div class="service-card">
-                            <div class="icon-box">💎</div>
-                            <h3 data-i18n="s-zirkonyum">Zirkonyum-Laminate</h3>
-                            <p data-i18n="s-zirkonyum-desc">Estetik ve dayanıklılığı bir arada sunan, doğal görünümlü kaplama çözümleri.</p>
-                            <button class="service-link" onclick="openModal('zirkonyum')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 5. Lamina Veneer -->
-                        <div class="service-card">
-                            <div class="icon-box">🦷</div>
-                            <h3 data-i18n="s-lamina">Lamina Veneer</h3>
-                            <p data-i18n="s-lamina-desc">Diş yüzeyine yapıştırılan ince yaprak porselenlerle mükemmel estetik.</p>
-                            <button class="service-link" onclick="openModal('lamina')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 6. Endodontik Cerrahi -->
-                        <div class="service-card">
-                            <div class="icon-box">🔬</div>
-                            <h3 data-i18n="s-endo">Endodontik Cerrahi</h3>
-                            <p data-i18n="s-endo-desc">Kök ucu rezeksiyonu ve inatçı enfeksiyonların cerrahi olarak tedavisi.</p>
-                            <button class="service-link" onclick="openModal('endo_cerrahi')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 7. Kanal Tedavisi -->
-                        <div class="service-card">
-                            <div class="icon-box">🛡️</div>
-                            <h3 data-i18n="s-kanal">Kanal Tedavisi</h3>
-                            <p data-i18n="s-kanal-desc">İltihaplı dişin sinirlerinin temizlenerek dişin ağızda tutulmasını sağlayan tedavi.</p>
-                            <button class="service-link" onclick="openModal('kanal')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 8. Gömülü Diş -->
-                        <div class="service-card">
-                            <div class="icon-box">🚑</div>
-                            <h3 data-i18n="s-gomulu">Gömülü Diş</h3>
-                            <p data-i18n="s-gomulu-desc">Sürmemiş veya yarı gömülü yirmi yaş dişlerinin ağrısız cerrahi çekimi.</p>
-                            <button class="service-link" onclick="openModal('gomulu')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 9. Çene Eklemi (TME) -->
-                        <div class="service-card">
-                            <div class="icon-box">🤐</div>
-                            <h3 data-i18n="s-tme">Çene Eklemi (TME)</h3>
-                            <p data-i18n="s-tme-desc">Çene eklemi ağrıları, ses gelmesi ve çene kilitlenmesi tedavileri.</p>
-                            <button class="service-link" onclick="openModal('tme')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 10. Diş Dolguları -->
-                        <div class="service-card">
-                            <div class="icon-box">🔧</div>
-                            <h3 data-i18n="s-dolgu">Diş Dolguları</h3>
-                            <p data-i18n="s-dolgu-desc">Çürük dişlerin temizlenip kompozit (estetik) malzemelerle restore edilmesi.</p>
-                            <button class="service-link" onclick="openModal('dolgu')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 11. Ortodontik Tedavi -->
-                        <div class="service-card">
-                            <div class="icon-box">😬</div>
-                            <h3 data-i18n="s-orto">Ortodontik Tedavi</h3>
-                            <p data-i18n="s-orto-desc">Diş çapraşıklıklarının diş telleri ile düzeltilmesi.</p>
-                            <button class="service-link" onclick="openModal('ortodonti')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 12. Çocuk Diş (Pedodonti) -->
-                        <div class="service-card">
-                            <div class="icon-box">🧸</div>
-                            <h3 data-i18n="s-pedodonti">Çocuk Diş Hekimliği</h3>
-                            <p data-i18n="s-pedodonti-desc">0-13 yaş grubu çocukların süt ve daimi dişlerinin korunması ve tedavisi.</p>
-                            <button class="service-link" onclick="openModal('pedodonti')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 13. Diş Eti Hastalıkları -->
-                        <div class="service-card">
-                            <div class="icon-box">🩸</div>
-                            <h3 data-i18n="s-diseti">Diş Eti Hastalıkları</h3>
-                            <p data-i18n="s-diseti-desc">Diş eti kanaması, çekilmesi ve periodontitis tedavileri.</p>
-                            <button class="service-link" onclick="openModal('dis_eti')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 14. Hareketli Protezler -->
-                        <div class="service-card">
-                            <div class="icon-box">👴</div>
-                            <h3 data-i18n="s-protez">Hareketli Protezler</h3>
-                            <p data-i18n="s-protez-desc">Tam veya yarım damak protezleri ile kaybedilen fonksiyonun geri kazanılması.</p>
-                            <button class="service-link" onclick="openModal('protez')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 15. Lazer Uygulamaları -->
-                        <div class="service-card">
-                            <div class="icon-box">💡</div>
-                            <h3 data-i18n="s-lazer">Lazer Uygulamaları</h3>
-                            <p data-i18n="s-lazer-desc">Diş eti şekillendirme ve aft-uçuk tedavilerinde ağrısız lazer teknolojisi.</p>
-                            <button class="service-link" onclick="openModal('lazer')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 16. Kist-Tümör -->
-                        <div class="service-card">
-                            <div class="icon-box">🦠</div>
-                            <h3 data-i18n="s-kist">Kist-Tümör Tedavileri</h3>
-                            <p data-i18n="s-kist-desc">Çene kemiği ve yumuşak dokudaki kistik oluşumların cerrahi tedavisi.</p>
-                            <button class="service-link" onclick="openModal('kist')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 17. Diş Beyazlatma -->
-                        <div class="service-card">
-                            <div class="icon-box">🌟</div>
-                            <h3 data-i18n="s-beyazlatma">Diş Beyazlatma</h3>
-                            <p data-i18n="s-beyazlatma-desc">Lazer destekli ofis tipi beyazlatma ile bembeyaz bir gülüş.</p>
-                            <button class="service-link" onclick="openModal('beyazlatma')" data-i18n="btn-detail">Detaylı Bilgi →</button>
-                        </div>
-                        <!-- 18. Şeffaf Plak -->
-                        <div class="service-card">
-                            <div class="icon-box">🧼</div>
-                            <h3 data-i18n="s-invisalign">Şeffaf Plak (Invisalign)</h3>
-                            <p data-i18n="s-invisalign-desc">Telsiz, görünmez plaklarla yapılan konforlu ortodontik tedavi.</p>
-                            <button class="service-link" onclick="openModal('invisalign')" data-i18n="btn-detail">Detaylı Bilgi →</button>
+                        <!-- Right dynamic detail panel -->
+                        <div class="explorer-content-panel" id="explorer-content-panel">
+                            <!-- JS will inject detailed panel content here -->
                         </div>
                     </div>
                 </div>
@@ -356,6 +247,11 @@
         <i class="fa-solid fa-phone"></i>
     </a>
 
+    
+    <!-- Fixed Floating Location Button -->
+    <a href="https://maps.google.com/?q=Esat+K%C4%B1l%C4%B1n%C3%A7+Di%C5%9F+Klini%C4%9Fi+%C4%B0stanbul" target="_blank" class="location-float-btn" title="Konumumuzu Gu00f6ru00fcn">
+        <i class="fa-solid fa-location-dot"></i>
+    </a>
     <!-- Fixed WhatsApp Button -->
     <a href="https://wa.me/905551234567" target="_blank" class="whatsapp-btn" title="WhatsApp ile İletişime Geçin">
         <i class="fa-brands fa-whatsapp"></i>
@@ -375,6 +271,247 @@
     <script src="translations.js"></script>
     <script src="theme-lang.js"></script>
     <script src="script.js?v=3.0"></script>
-</body>
+
+    <script>
+        const servicesData = {
+            estetik: [
+                {
+                    key: 'gulus',
+                    title: 'Gülüş Tasarımı',
+                    icon: '✨',
+                    desc: 'Yüz hatlarınıza, dudak yapınıza ve ten renginize en uygun, estetik açıdan kusursuz ve doğal görünümlü bir gülüşün dijital teknolojilerle tasarlanması sürecidir.',
+                    features: ['Kişiye özel dijital analiz', 'Geçici mockup uygulaması', 'Doğal ve estetik diş formu', 'Minimum doku kaybı']
+                },
+                {
+                    key: 'zirkonyum',
+                    title: 'Zirkonyum Kaplama',
+                    icon: '💎',
+                    desc: 'Işık geçirgenliği yüksek, metal desteksiz zirkonyum kaplamalar ile son derece estetik, parlak ve doğal görünümlü diş restorasyonları.',
+                    features: ['Mükemmel ışık geçirgenliği', 'Metal desteksiz biyouyumlu', 'Renk değişimi yapmaz', 'Uzun ömürlü ve dayanıklı']
+                },
+                {
+                    key: 'lamina',
+                    title: 'Lamina Veneer',
+                    icon: '🦷',
+                    desc: 'Dişlerin sadece ön yüzeylerinden minimal düzeyde (0.3 - 0.7 mm) aşındırma yapılarak yapıştırılan çok ince yaprak porselenler. Kusursuz estetik ve beyazlık sunar.',
+                    features: ['Minimal diş aşındırması', 'Mükemmel estetik uyum', 'Kısa sürede beyaz gülüşler', 'Leke tutmayan porselen']
+                },
+                {
+                    key: 'beyazlatma',
+                    title: 'Diş Beyazlatma',
+                    icon: '🌟',
+                    desc: 'Klinik ortamında özel beyazlatma jelleri ve lazer aktivasyon teknolojisi ile dişlerin doğal renk tonunun 3 ila 4 ton kadar ağrısız ve güvenli bir şekilde açılması işlemidir.',
+                    features: ['Tek seansta hızlı sonuç', 'Güvenli ve onaylı jeller', 'Lazer aktivasyon gücü', 'Uzun süre kalıcı beyazlık']
+                },
+                {
+                    key: 'invisalign',
+                    title: 'Şeffaf Plak (Invisalign)',
+                    icon: '💎',
+                    desc: 'Geleneksel metal diş telleri yerine tamamen görünmez, takılıp çıkarılabilir şeffaf plaklar (Invisalign) yardımıyla yapılan modern ve konforlu ortodontik düzeltme tedavisidir.',
+                    features: ['Tamamen görünmez plaklar', 'İstendiğinde takıp çıkarma', 'Kolay ağız hijyeni', '3D tedavi simülasyonu']
+                }
+            ],
+            cerrahi: [
+                {
+                    key: 'implant',
+                    title: 'Dental İmplant',
+                    icon: '🔩',
+                    desc: 'Eksik dişlerin yerine çene kemiğine yerleştirilen titanyum yapay kökler. Üzerine yerleştirilen porselen protezler sayesinde doğal dişe en yakın çiğneme gücü ve estetiği kazandırır.',
+                    features: ['Ömür boyu kullanım', 'Doğal çiğneme hissi', 'Çevre dişlere zarar vermez', 'Çene kemiği erimesini önler']
+                },
+                {
+                    key: 'endo_cerrahi',
+                    title: 'Endodontik Cerrahi',
+                    icon: '🔬',
+                    desc: 'Geleneksel kanal tedavisi ile iyileşmeyen veya kök ucunda kist bulunan dişlerin kurtarılması için gerçekleştirilen apikal rezeksiyon ve kök ucu cerrahisi uygulamalarıdır.',
+                    features: ['Dişi ağızda tutma garantisi', 'Mikroskobik hassasiyet', 'Ağrısız lokal anestezi', 'Kistik dokuların temizlenmesi']
+                },
+                {
+                    key: 'gomulu',
+                    title: 'Gömülü Diş Tedavisi',
+                    icon: '🚑',
+                    desc: 'Çenede sürme alanı bulamadığı için gömülü veya yarı gömülü kalmış yirmi yaş dişlerinin, çevre dokulara zarar vermeden cerrahi yöntemlerle ağrısız ve steril şekilde çekilmesi.',
+                    features: ['Ağrısız ve konforlu cerrahi', 'Çevre dişlerin korunması', 'Enfeksiyon riskini önleme', 'Hızlı iyileşme süreci']
+                },
+                {
+                    key: 'tme',
+                    title: 'Çene Eklemi (TME)',
+                    icon: '🤐',
+                    desc: 'Diş sıkma (bruksizm), çene ekleminden ses gelmesi, ağrı ve eklem kilitlenmesi gibi temporomandibuler eklem rahatsızlıklarının splint ve botoks yardımıyla tedavisi.',
+                    features: ['Gece plağı (Splint) tedavisi', 'Diş sıkma botoksu', 'Eklem içi yıkama (Lavaj)', 'Ağrıların son bulması']
+                },
+                {
+                    key: 'kist',
+                    title: 'Kist-Tümör Tedavileri',
+                    icon: '🦠',
+                    desc: 'Çene kemikleri içerisinde veya çevre yumuşak dokularda gelişen kistik ve tümoral patolojik oluşumların cerrahi olarak çıkarılması ve kemik greftleriyle doku onarımı.',
+                    features: ['Patolojik analiz desteği', 'Kemik grefti (tozu) takviyesi', 'Hassas cerrahi planlama', 'Çene kemiğinin korunması']
+                }
+            ],
+            genel: [
+                {
+                    key: 'muayene',
+                    title: 'Muayene ve Teşhis (CBCT)',
+                    icon: '🩺',
+                    desc: 'Gelişmiş 3D Diş Tomografisi (CBCT) ve dijital panoramik röntgen yardımıyla ağız içi tüm problemlerin en ince detayına kadar analiz edilip doğru tedavi planının oluşturulması.',
+                    features: ['3 Boyutlu tomografik analiz', 'Detaylı klinik muayene', 'Kişiye özel tedavi planı', 'Erken aşamada teşhis']
+                },
+                {
+                    key: 'kanal',
+                    title: 'Kanal Tedavisi',
+                    icon: '🛡️',
+                    desc: 'İltihaplanmış veya canlıliğini kaybetmiş diş sinirlerinin (pulpa) dezenfekte edilerek kök kanallarının sızdırmaz dolgu malzemeleri ile kapatılması.',
+                    features: ['Şiddetli ağrıların kesilmesi', 'Diş kaybının önlenmesi', 'Döner aletlerle hızlı işlem', 'Doğal dişin korunması']
+                },
+                {
+                    key: 'dolgu',
+                    title: 'Diş Dolguları',
+                    icon: '🔧',
+                    desc: 'Çürük nedeniyle kaybedilen diş dokularının temizlenerek, diş rengiyle birebir uyumlu estetik kompozit dolgu veya porselen inley/onley dolgularla restore edilmesi.',
+                    features: ['Diş renginde estetik dolgu', 'Kuvvetli nano-kompozit', 'Tek seansta tedavi', 'Mükemmel sızdırmazlık']
+                },
+                {
+                    key: 'lazer',
+                    title: 'Lazer Uygulamaları',
+                    icon: '💡',
+                    desc: 'Dental lazer teknolojisi ile ağız içi yumuşak doku ameliyatları, diş eti şekillendirme ve aft/uçuk tedavilerinin dikişsiz, kanamasız ve son derece hızlı şekilde yapılması.',
+                    features: ['Kanamasız dikişsiz işlem', 'Minimum operasyon ağrısı', 'Hızlı doku iyileşmesi', 'Etkin sterilizasyon gücü']
+                },
+                {
+                    key: 'protez',
+                    title: 'Hareketli Protezler',
+                    icon: '👴',
+                    desc: 'Çok sayıda veya tüm dişlerini kaybetmiş hastalara uygulanan, temizlik için takılıp çıkarılabilen tam (damak) veya kısmi (kancalı/hassas tutuculu) protez uygulamalarıdır.',
+                    features: ['Çiğneme fonksiyonunun iadesi', 'Konuşma netliğinin artması', 'Dudak ve yanak desteği', 'Hassas tutuculu estetik alternatifler']
+                }
+            ],
+            ortodonti: [
+                {
+                    key: 'ortodonti',
+                    title: 'Ortodontik Tedavi',
+                    icon: '😬',
+                    desc: 'Dişlerdeki çapraşıklıkların, uyumsuz çene ilişkilerinin geleneksel metal teller veya estetik porselen teller kullanılarak kalıcı olarak düzeltilmesi tedavisidir.',
+                    features: ['Kalıcı düzgün diş dizilimi', 'Metal veya porselen braketler', 'Çene ilişkilerinin düzeltilmesi', 'Her yaş grubuna uygun']
+                },
+                {
+                    key: 'pedodonti',
+                    title: 'Çocuk Diş Hekimliği',
+                    icon: '🧸',
+                    desc: '0-13 yaş grubu çocukların süt ve daimi dişlerinin sağlığını korumak amacıyla uygulanan florür uygulaması, yer tutucular, fissür örtücüler ve ağrısız çocuk dolguları.',
+                    features: ['Korkusuz eğlenceli muayene', 'Çürük önleyici fissür örtücü', 'Süt dişi çekimi ve yer tutucu', 'Flor uygulamaları']
+                },
+                {
+                    key: 'diseti',
+                    title: 'Diş Eti Hastalıkları',
+                    icon: '🩸',
+                    desc: 'Diş eti kanaması, ağız kokusu ve kemik kaybına yol açan tartar birikimlerinin derin diş taşı temizliği (detertraj) ve kök yüzeyi düzleştirmesi (küretaj) ile tedavisi.',
+                    features: ['Ağız kokusunun giderilmesi', 'Kanamaların durdurulması', 'Detaylı tartar temizliği', 'Kemik kaybının önlenmesi']
+                }
+            ]
+        };
+
+        let activeCategory = 'estetik';
+        let activeServiceIndex = 0;
+
+        function switchCategory(cat) {
+            activeCategory = cat;
+            activeServiceIndex = 0;
+            
+            // Update tabs active state
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                if (tab.getAttribute('onclick').includes(cat)) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            renderSidebar();
+            renderDetailPanel();
+        }
+
+        function switchService(index) {
+            activeServiceIndex = index;
+            
+            // Update sidebar active items
+            document.querySelectorAll('.explorer-item').forEach((item, idx) => {
+                if (idx === index) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+            
+            renderDetailPanel();
+        }
+
+        function renderSidebar() {
+            const sidebar = document.getElementById('explorer-sidebar');
+            sidebar.innerHTML = '';
+            
+            const services = servicesData[activeCategory];
+            services.forEach((s, idx) => {
+                const button = document.createElement('div');
+                button.className = `explorer-item ${idx === activeServiceIndex ? 'active' : ''}`;
+                button.innerHTML = `${s.icon} ${s.title}`;
+                button.onclick = () => switchService(idx);
+                sidebar.appendChild(button);
+            });
+        }
+
+        function renderDetailPanel() {
+            const panel = document.getElementById('explorer-content-panel');
+            const service = servicesData[activeCategory][activeServiceIndex];
+            
+            // Add fade animation out
+            panel.classList.add('fade-out');
+            
+            setTimeout(() => {
+                const featuresHtml = service.features.map(f => `<li><i class="fa-solid fa-circle-check"></i> ${f}</li>`).join('');
+                
+                panel.innerHTML = `
+                    <div>
+                        <div class="panel-header-row">
+                            <div class="panel-icon-box">${service.icon}</div>
+                            <div class="panel-title-area">
+                                <span>Esat Kılınç Diş Kliniği</span>
+                                <h3>${service.title}</h3>
+                            </div>
+                        </div>
+                        <p class="panel-body-desc">${service.desc}</p>
+                        <div class="panel-features">
+                            <h4>Öne Çıkan Özellikler & Avantajlar</h4>
+                            <ul>${featuresHtml}</ul>
+                        </div>
+                    </div>
+                    <div class="panel-actions">
+                        <a href="randevu.html" class="btn-primary-lg">Hemen Randevu Al</a>
+                        <a href="https://wa.me/905551234567" target="_blank" class="btn-outline-lg" style="border-width:2px; font-weight:700;"><i class="fa-brands fa-whatsapp"></i> Detaylı Bilgi</a>
+                    </div>
+`;
+                
+                // Remove fade animation out
+                panel.classList.remove('fade-out');
+            }, 150);
+        }
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && ['estetik', 'cerrahi', 'genel', 'ortodonti'].includes(hash)) {
+                switchCategory(hash);
+            } else {
+                switchCategory('estetik');
+            }
+        });
+
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && ['estetik', 'cerrahi', 'genel', 'ortodonti'].includes(hash)) {
+                switchCategory(hash);
+            }
+        });
+    </script>
+    </body>
 
 </html>

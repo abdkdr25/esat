@@ -15,7 +15,11 @@ if (!fs.existsSync(uploadsDir)) {
 const authRoutes = require('./routes/authRoutes');
 const appointmentRoutes = require('./routes/appointmentRoutes');
 const articleRoutes = require('./routes/articleRoutes');
+const galleryRoutes = require('./routes/galleryRoutes');
+const reviewRoutes = require('./routes/reviewRoutes');
+const doctorRoutes = require('./routes/doctorRoutes');
 const pageRoutes = require('./routes/pageRoutes');
+const faqRoutes = require('./routes/faqRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -37,6 +41,10 @@ app.use('/', pageRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/appointments', appointmentRoutes);
 app.use('/api/articles', articleRoutes);
+app.use('/api/gallery', galleryRoutes);
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/doctors', doctorRoutes);
+app.use('/api/faq', faqRoutes);
 
 // Health Check / Uyanık Kal Endpoint'i
 app.get('/ping', async (req, res) => {

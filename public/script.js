@@ -1087,3 +1087,307 @@ window.closeModal = function () {
     const modal = document.getElementById('service-modal');
     if (modal) modal.classList.remove('active');
 };
+
+window.scrollCarousel = function (id, page) {
+    const carousel = document.getElementById(id);
+    if (!carousel) return;
+    const card = carousel.firstElementChild;
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 30; // card width + gap
+    carousel.scrollTo({
+        left: page * cardWidth * 1.5,
+        behavior: 'smooth'
+    });
+    const parent = carousel.parentElement;
+    if (parent) {
+        const dots = parent.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, index) => {
+            if (index === page) dot.classList.add('active');
+            else dot.classList.remove('active');
+        });
+    }
+};
+
+// About Us Auto & Manual Slider
+let aboutSlideInterval;
+let currentAboutSlide = 0;
+
+window.changeAboutSlide = function(direction) {
+    const slides = document.querySelectorAll('#about-slider .slide');
+    if (slides.length === 0) return;
+    
+    slides[currentAboutSlide].classList.remove('active');
+    currentAboutSlide = (currentAboutSlide + direction + slides.length) % slides.length;
+    slides[currentAboutSlide].classList.add('active');
+    
+    // Reset interval when manually clicked
+    clearInterval(aboutSlideInterval);
+    startAboutSlider();
+};
+
+function startAboutSlider() {
+    const slides = document.querySelectorAll('#about-slider .slide');
+    if (slides.length > 0) {
+        aboutSlideInterval = setInterval(() => {
+            changeAboutSlide(1);
+        }, 3000);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    startAboutSlider();
+    yuklePublicYorumlar();
+    yuklePublicDoktorlar();
+
+    yuklePublicFAQ();
+
+    // Soru modal aç butonu
+    const soruAcBtn = document.querySelector('button[onclick*="hasta-soru-modal"]');
+    if (soruAcBtn) {
+        soruAcBtn.onclick = function() { acSoruModal(); };
+    }
+});
+
+// ─── SORU MODAL YARDIMCI FONKSİYONLAR ───
+function acSoruModal() {
+    const modal = document.getElementById('hasta-soru-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function kapatSoruModal() {
+    const modal = document.getElementById('hasta-soru-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+// Dışarı tıklayınca kapat
+document.addEventListener('click', function(e) {
+    const modal = document.getElementById('hasta-soru-modal');
+    if (modal && e.target === modal) {
+        kapatSoruModal();
+    }
+});
+
+// ─── FAQ (PUBLIC) ───
+async function yuklePublicFAQ() {
+    const container = document.getElementById('faq-accordion');
+    if (!container) return;
+    
+    try {
+        const res = await fetch(API_URL + '/faq/public');
+        const sorular = await res.json();
+        
+        container.innerHTML = '';
+        if (sorular.length === 0) {
+            container.innerHTML = '<p style="text-align:center; color:var(--text-muted);">Henüz yayınlanmış bir soru bulunmuyor.</p>';
+            return;
+        }
+        
+        let index = 1;
+        sorular.forEach(q => {
+            const div = document.createElement('div');
+            div.className = 'faq-item';
+            div.style.cssText = 'background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm);';
+            
+            div.innerHTML = `
+                <div class="faq-question" style="padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; color: var(--primary-dark); font-size: 16px; user-select: none;">
+                    <span>${index}. ${q.soru}</span>
+                    <i class="fa-solid fa-chevron-down faq-icon" style="transition: transform 0.3s;"></i>
+                </div>
+                <div class="faq-answer" style="padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease-out;">
+                    <p style="padding-bottom: 20px; color: var(--text-muted); line-height: 1.6; font-size: 14px;">${q.cevap}</p>
+                </div>
+            `;
+            container.appendChild(div);
+            index++;
+        });
+
+        // FAQ Accordion Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    const answer = otherItem.querySelector('.faq-answer');
+                    answer.style.maxHeight = null;
+                    const icon = otherItem.querySelector('.faq-icon');
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+                });
+                if (!isActive) {
+                    item.classList.add('active');
+                    const answer = item.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    const icon = item.querySelector('.faq-icon');
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    } catch (err) {
+        console.error("FAQ yükleme hatası:", err);
+    }
+}
+
+const hastaSoruForm = document.getElementById('hasta-soru-form');
+if (hastaSoruForm) {
+    hastaSoruForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const hasta_adi = document.getElementById('soru-hasta-adi').value;
+        const soru = document.getElementById('soru-icerik').value;
+        const btn = hastaSoruForm.querySelector('button[type="submit"]');
+        const oldHtml = btn.innerHTML;
+        
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Gönderiliyor...';
+        
+        try {
+            const res = await fetch(API_URL + '/faq', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ hasta_adi, soru })
+            });
+            const result = await res.json();
+            
+            if (res.ok) {
+                alert('Sorunuz başarıyla iletildi. Doktorumuz tarafından cevaplandığında yayına alınacaktır.');
+                kapatSoruModal();
+                hastaSoruForm.reset();
+            } else {
+                alert(result.error || 'Gönderim sırasında hata oluştu.');
+            }
+        } catch (err) {
+            alert('Sunucu bağlantı hatası.');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = oldHtml;
+        }
+    });
+}
+
+// ─── DOKTORLAR (PUBLIC) ───
+async function yuklePublicDoktorlar() {
+    const carousel = document.getElementById('team-carousel');
+    if (!carousel) return;
+    
+    try {
+        const res = await fetch(API_URL + '/doctors');
+        const result = await res.json();
+        
+        if (!result.success || result.data.length === 0) {
+            carousel.innerHTML = '<p style="text-align:center; width:100%; color:var(--text-muted);">Henüz doktor bilgisi girilmemiş.</p>';
+            return;
+        }
+        
+        carousel.innerHTML = '';
+        result.data.forEach(d => {
+            const card = document.createElement('div');
+            card.className = 'doctor-card';
+            
+            card.innerHTML = `
+                <div class="doctor-img-wrapper">
+                    <img src="${d.fotograf}" alt="${d.isim}" style="object-fit: cover; object-position: top; width:100%; height:100%;">
+                </div>
+                <div class="doctor-info">
+                    <h3>${d.isim}</h3>
+                    <p>${d.unvan}</p>
+                </div>
+            `;
+            carousel.appendChild(card);
+        });
+    } catch (err) {
+        console.error("Doktorlar yüklenirken hata oluştu:", err);
+    }
+}
+
+// ─── YORUMLAR (PUBLIC) ───
+async function yuklePublicYorumlar() {
+    const carousel = document.getElementById('reviews-carousel');
+    if (!carousel) return;
+    
+    try {
+        const res = await fetch(API_URL + '/reviews/public');
+        const yorumlar = await res.json();
+        
+        if (yorumlar.length === 0) {
+            carousel.innerHTML = '<p style="text-align:center; width:100%; color:var(--text-muted);">Henüz onaylanmış yorum bulunmuyor.</p>';
+            return;
+        }
+        
+        carousel.innerHTML = '';
+        yorumlar.forEach(y => {
+            const card = document.createElement('div');
+            card.className = 'testimonial-card';
+            
+            // İsimden baş harfleri alma
+            const words = y.isim.trim().split(' ');
+            let initials = '';
+            if (words.length > 0) initials += words[0].charAt(0).toUpperCase();
+            if (words.length > 1) initials += words[words.length - 1].charAt(0).toUpperCase();
+            if (initials === '') initials = 'H';
+            
+            card.innerHTML = `
+                <div class="testimonial-rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="testimonial-text">"${y.yorum}"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">${initials}</div>
+                    <div class="author-info">
+                        <h4>${y.isim}</h4>
+                        <span>${new Date(y.olusturma_tarihi).toLocaleDateString('tr-TR')}</span>
+                    </div>
+                </div>
+            `;
+            carousel.appendChild(card);
+        });
+    } catch (err) {
+        console.error("Yorumlar yüklenirken hata oluştu:", err);
+    }
+}
+
+const publicReviewForm = document.getElementById('public-review-form');
+if (publicReviewForm) {
+    publicReviewForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = publicReviewForm.querySelector('button');
+        const oHtml = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Gönderiliyor...';
+        
+        const data = {
+            isim: document.getElementById('review-isim').value,
+            yorum: document.getElementById('review-yorum').value
+        };
+        
+        try {
+            const res = await fetch(API_URL + '/reviews', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const result = await res.json();
+            
+            if (res.ok) {
+                alert('Yorumunuz başarıyla gönderildi. Yönetici onayından sonra yayımlanacaktır. Teşekkür ederiz!');
+                publicReviewForm.reset();
+            } else {
+                alert(result.error || 'Hata oluştu.');
+            }
+        } catch (err) {
+            alert('Bağlantı hatası.');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = oHtml;
+        }
+    });
+}

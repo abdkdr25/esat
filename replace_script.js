@@ -3,6 +3,7 @@ const path = require('path');
 
 const replacements = [
     { from: /Dr\. Muhammet Emin Başyıldız/g, to: 'Esat Kılınç Diş Kliniği' },
+    { from: /Dr\. M\. Emin Başyıldız/g, to: 'Dr. Esat Kılınç' },
     { from: /Muhammet Emin Başyıldız/g, to: 'Esat Kılınç' },
     { from: /muhammeteminbasyildiz\.com/g, to: 'esatkilinc.com' },
     { from: /dt\.muhammetemin/g, to: 'dt.esatkilinc' },

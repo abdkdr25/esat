@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { pool } = require('../config/db');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'gizli_anahtar_buraya_yazilir_daha_karma_bir_sey_olmali';
 
@@ -8,7 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'gizli_anahtar_buraya_yazilir_daha_
  * - Yetkisiz erişimde JSON döndürmek yerine /login sayfasına redirect eder.
  * - Token'ı cookie'den okur (tarayıcı güvenliği açısından localStorage'dan daha iyi).
  */
-function requireAuth(req, res, next) {
+async function requireAuth(req, res, next) {
     // Token önce cookie'den, yoksa Authorization header'dan okunur
     const token = req.cookies?.adminToken || extractBearerToken(req);
 
@@ -18,6 +19,19 @@ function requireAuth(req, res, next) {
 
     try {
         const decoded = jwt.verify(token, JWT_SECRET);
+        
+        // Veritabanı kontrolü (DB yoksa atla)
+        try {
+            const [users] = await pool.query('SELECT id FROM admins WHERE id = ?', [decoded.id]);
+            if (users.length === 0) {
+                res.clearCookie('adminToken');
+                return res.redirect('/login');
+            }
+        } catch (dbErr) {
+            // DB bağlantısı yok, JWT token geçerliyse devam et (çevrimdışı mod)
+            console.warn('⚠️ requireAuth: DB bağlantısı yok, JWT ile devam ediliyor.');
+        }
+        
         req.admin = decoded;
         next();
     } catch (err) {

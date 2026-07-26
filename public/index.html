@@ -15,7 +15,7 @@
     <meta property="og:title" content="Esat Kılınç Diş Kliniği | İstanbul Diş Kliniği">
     <meta property="og:description"
         content="İstanbul'te premium diş hekimliği çözümleri. İmplant, zirkonyum kaplama ve gülüş tasarımında uzman diş hekimi.">
-    <meta property="og:image" content="https://www.esatkilinc.com/video/logo.jpeg">
+    <meta property="og:image" content="https://www.esatkilinc.com/video/logo-yeni.jpeg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -23,7 +23,7 @@
     <meta property="twitter:title" content="Esat Kılınç Diş Kliniği | İstanbul Diş Kliniği">
     <meta property="twitter:description"
         content="İstanbul'te premium diş hekimliği çözümleri. İmplant, zirkonyum kaplama ve gülüş tasarımında uzman diş hekimi.">
-    <meta property="twitter:image" content="https://www.esatkilinc.com/video/logo.jpeg">
+    <meta property="twitter:image" content="https://www.esatkilinc.com/video/logo-yeni.jpeg">
 
     <!-- Google Fonts: Poppins (Display) & Inter (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,9 +34,8 @@
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="icon" type="image/jpeg" href="video/logo-yeni.jpeg?v=2">
+    <link rel="apple-touch-icon" href="video/logo-yeni.jpeg?v=2">
     <link rel="stylesheet" href="style.css">
 
     <!-- Schema.org Structured Data -->
@@ -45,7 +44,7 @@
       "@context": "https://schema.org",
       "@type": "MedicalBusiness",
       "name": "Esat Kılınç Diş Kliniği Diş Kliniği",
-      "image": "https://www.esatkilinc.com/video/logo.jpeg",
+      "image": "https://www.esatkilinc.com/video/logo-yeni.jpeg",
       "@id": "https://www.esatkilinc.com/#medicalbusiness",
       "url": "https://www.esatkilinc.com",
       "telephone": "+905551234567",
@@ -106,337 +105,475 @@
 
     <!-- HEADER -->
     <header class="header">
-            <div class="container header-content">
-                <div class="logo-container">
-                    <img src="video/logo.png" alt="Logo" class="logo-img">
-                    <h1 class="logo">Esat Kılınç Diş Kliniği<span>.</span></h1>
-                </div>
-                <nav class="nav">
-                    <a href="index.html" class="nav-btn active" data-i18n="nav-home">Ana Sayfa</a>
-                    <a href="hakkimizda.html" class="nav-btn" data-i18n="nav-about">Hakkımızda</a>
-                    <a href="hizmetler.html" class="nav-btn" data-i18n="nav-services">Hizmetler</a>
-                    <a href="galeri.html" class="nav-btn" data-i18n="nav-gallery">Galeri</a>
-                    <a href="makaleler.html" class="nav-btn" data-i18n="nav-articles">Makaleler</a>
-                    <a href="#contact" class="nav-btn" data-i18n="nav-contact">İletişim</a>
-                </nav>
-                <div class="header-right">
+        <div class="container header-content">
+            <div class="logo-container">
+                <img src="video/logo-yeni.jpeg" alt="Logo" class="logo-img">
+                <h1 class="logo">Esat Kılınç Diş Kliniği<span>.</span></h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-btn active" data-i18n="nav-home">Ana Sayfa</a>
+                <a href="hakkimizda.html" class="nav-btn" data-i18n="nav-about">Hakkımızda</a>
+                <a href="hizmetler.html" class="nav-btn" data-i18n="nav-services">Hizmetler</a>
+                <a href="galeri.html" class="nav-btn" data-i18n="nav-gallery">Galeri</a>
+                <a href="makaleler.html" class="nav-btn" data-i18n="nav-articles">Doktor Köşesi</a>
+                <a href="#contact" class="nav-btn" data-i18n="nav-contact">İletişim</a>
+            </nav>
+            <div class="header-right">
 
-                    <div class="lang-selector">
-                        <button class="lang-btn" id="lang-menu-btn">
-                            <i class="fa-solid fa-globe"></i> <span id="current-lang">TR</span> <i
-                                class="fa-solid fa-chevron-down"></i>
+                <div class="lang-selector">
+                    <button class="lang-btn" id="lang-menu-btn">
+                        <i class="fa-solid fa-globe"></i> <span id="current-lang">TR</span> <i
+                            class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown" id="lang-dropdown">
+                        <a href="#" onclick="changeLanguage('tr'); return false;">Türkçe</a>
+                        <a href="#" onclick="changeLanguage('en'); return false;">English</a>
+                        <a href="#" onclick="changeLanguage('ar'); return false;">العربية</a>
+                        <a href="#" onclick="changeLanguage('de'); return false;">Deutsch</a>
+                    </div>
+                </div>
+                <a href="tel:05551234567" class="header-phone"><i class="fa-solid fa-phone"></i>0555 123 45 67</a>
+                
+                <a href="makaleler.html" class="header-phone" style="gap:6px;" data-i18n="nav-articles"><i class="fa-solid fa-stethoscope"></i>Doktor Köşesi</a>
+
+                <a href="randevu.html" class="btn-cta" data-i18n="btn-cta">Hemen Randevu Al</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menü">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU DRAWER & OVERLAY -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <div class="logo-container">
+                <img src="video/logo-yeni.jpeg" alt="Logo" class="logo-img">
+                <span class="logo">Esat Kılınç Diş Kliniği<span>.</span></span>
+            </div>
+            <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Kapat">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="drawer-body">
+            <nav class="drawer-nav">
+                <a href="index.html" class="drawer-nav-btn active" data-i18n-nav="home"><i
+                        class="fa-solid fa-house"></i> <span data-i18n="nav-home">Ana Sayfa</span></a>
+                <a href="hakkimizda.html" class="drawer-nav-btn" data-i18n-nav="about"><i
+                        class="fa-solid fa-circle-info"></i> <span data-i18n="nav-about">Hakkımızda</span></a>
+                <a href="hizmetler.html" class="drawer-nav-btn" data-i18n-nav="services"><i
+                        class="fa-solid fa-tooth"></i> <span data-i18n="nav-services">Hizmetler</span></a>
+                <a href="galeri.html" class="drawer-nav-btn" data-i18n-nav="gallery"><i class="fa-solid fa-image"></i>
+                    <span data-i18n="nav-gallery">Galeri</span></a>
+                <a href="makaleler.html" class="drawer-nav-btn" data-i18n-nav="articles"><i
+                        class="fa-solid fa-newspaper"></i> <span data-i18n="nav-articles">Doktor Köşesi</span></a>
+                <a href="#contact" class="drawer-nav-btn" data-i18n-nav="contact"><i
+                        class="fa-solid fa-location-dot"></i> <span data-i18n="nav-contact">İletişim</span></a>
+            </nav>
+
+            <div class="drawer-lang-section">
+                <div class="lang-title"><i class="fa-solid fa-globe"></i> Dil / Language</div>
+                <div class="drawer-lang-links">
+                    <a href="#" data-lang="tr" onclick="changeLanguage('tr'); return false;">Türkçe</a>
+                    <a href="#" data-lang="en" onclick="changeLanguage('en'); return false;">English</a>
+                    <a href="#" data-lang="ar" onclick="changeLanguage('ar'); return false;">العربية</a>
+                    <a href="#" data-lang="de" onclick="changeLanguage('de'); return false;">Deutsch</a>
+                </div>
+            </div>
+        </div>
+        <div class="drawer-footer" style="display: flex; flex-direction: column; gap: 8px;">
+            <a href="tel:05551234567" class="drawer-phone"><i class="fa-solid fa-phone"></i> 0555 123 45 67</a>
+
+            <a href="randevu.html" class="drawer-btn-cta" data-i18n="btn-cta">Hemen Randevu Al</a>
+        </div>
+    </div>
+
+    <main class="main">
+
+        <!-- HOME PAGE (Landing) -->
+        <div id="home-page" class="page active">
+
+            <!-- HERO SECTION -->
+            <section class="hero">
+                <div class="container hero-container">
+                    <div class="hero-text">
+                        <a href="makaleler.html" class="badge" data-i18n="hero-badge"
+                            style="text-decoration: none; cursor: pointer;">✨ Uzman Kliniği</a>
+                        <h1 data-i18n="hero-title">Sağlıklı Gülüşler,<br>Mutlu Yarınlar.</h1>
+                        <p data-i18n="hero-desc">En son teknoloji cihazlarımız ve uzman kadromuz ile ağız ve diş
+                            sağlığınız için premium tedavi çözümleri sunuyoruz.</p>
+                        <div class="hero-buttons">
+                            <a href="randevu.html" class="btn-primary-lg" data-i18n="btn-hero-app">Randevu Oluştur</a>
+                            <a href="hizmetler.html" class="btn-outline-lg" data-i18n="btn-hero-serv">Hizmetleri
+                                İncele</a>
+                        </div>
+
+                        <div class="trust-indicators">
+                            <div class="trust-item">
+                                <strong>10.000+</strong>
+                                <span data-i18n="trust-patients">Başarılı Tedavi</span>
+                            </div>
+                            <div class="trust-item">
+                                <strong>Premium</strong>
+                                <span data-i18n="trust-exp">Klinik Deneyimi</span>
+                            </div>
+                            <div class="trust-item">
+                                <strong>%100</strong>
+                                <span data-i18n="trust-rating">Memnuniyet</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image-container">
+                        <img src="video/hero-main.png" alt="Esat Kılınç Diş Kliniği">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABOUT SECTION (HAKKIMIZDA) -->
+            <section class="home-about">
+                <div class="container home-about-container">
+                    <div class="home-about-visual">
+                        <div class="about-image-wrapper glass-img-wrapper">
+                            <div class="about-slider" id="about-slider">
+                                <img src="video/about-us.jpg" alt="Dt. Esat Kılınç Diş Kliniği" class="slide active">
+                                <img src="video/about-slider-2.png" alt="Klinik Görsel 2" class="slide">
+                                <img src="video/about-slider-3.png" alt="Klinik Görsel 3" class="slide">
+                                <img src="video/about-slider-4.png" alt="Klinik Görsel 4" class="slide">
+                                <img src="video/about-slider-5.png" alt="Klinik Görsel 5" class="slide">
+                                <button class="slider-btn prev-btn" onclick="changeAboutSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                                <button class="slider-btn next-btn" onclick="changeAboutSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-about-text">
+                        <span class="badge" data-i18n="about-badge">✨ Hakkımızda</span>
+                        <h2 data-i18n="about-title">Gülüşünüz Bizim İçin Değerli</h2>
+                        <p data-i18n="about-p1">Ağız ve diş sağlığı, genel sağlığın ayrılmaz bir parçasıdır.
+                            Kliniğimiz,
+                            hastalarımıza sağlıklı, estetik ve özgüvenli gülüşler kazandırma hedefiyle kurulmuştur.
+                        </p>
+                        <p data-i18n="about-p2">Kliniğimizde; genel diş tedavilerinin yanı sıra estetik diş
+                            hekimliği,
+                            implant uygulamaları, ortodonti, protez tedavileri ve diş beyazlatma gibi geniş kapsamlı
+                            hizmetler sunulmaktadır.</p>
+                        <p data-i18n="about-p3">Bizim için her hasta özeldir. Güler yüzlü ekibimiz ile birlikte, diş
+                            hekimi korkusunu en aza indiren, stressiz bir deneyim sunmayı hedefliyoruz.</p>
+                        <a href="hakkimizda.html" class="btn-readmore"><span data-i18n="btn-readmore">Devamını
+                                Oku</span> <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SERVICES SECTION -->
+            <section class="services" style="background: var(--white); padding: 100px 0;">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="badge">✨ Tedavilerimiz</span>
+                        <h2 data-i18n="services-title">Uzmanlık Alanlarımız</h2>
+                        <p data-i18n="services-desc">Her biri alanında uzman hekimlerimizle sunduğumuz ayrıcalıklı tedaviler.</p>
+                    </div>
+
+                    <div class="premium-service-grid">
+                        <!-- Category 1: Estetik -->
+                        <div class="premium-card" style="background-image: url('video/service-aesthetic.png');" onclick="window.location.href='hizmetler.html#estetik'">
+                            <div class="premium-card-content">
+                                <div class="premium-card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                                <h3 data-i18n="cat-title-estetik">Estetik Diş Hekimliği</h3>
+                                <ul class="premium-card-list">
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#estetik">Gülüş Tasarımı</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#estetik">Zirkonyum Kaplama</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#estetik">Lamina Veneer</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#estetik">Diş Beyazlatma</a></li>
+                                </ul>
+                                <a href="hizmetler.html#estetik" class="premium-explore-btn">Tümünü İncele <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Category 2: Cerrahi -->
+                        <div class="premium-card" style="background-image: url('video/service-surgery.png');" onclick="window.location.href='hizmetler.html#cerrahi'">
+                            <div class="premium-card-content">
+                                <div class="premium-card-icon"><i class="fa-solid fa-tooth"></i></div>
+                                <h3 data-i18n="cat-title-cerrahi">İmplant & Cerrahi</h3>
+                                <ul class="premium-card-list">
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#cerrahi">Dental İmplant</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#cerrahi">Gömülü Diş Operasyonu</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#cerrahi">Çene Eklemi (TME)</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#cerrahi">Kist & Tümör Operasyonları</a></li>
+                                </ul>
+                                <a href="hizmetler.html#cerrahi" class="premium-explore-btn">Tümünü İncele <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Category 3: Genel -->
+                        <div class="premium-card" style="background-image: url('video/service-general.png');" onclick="window.location.href='hizmetler.html#genel'">
+                            <div class="premium-card-content">
+                                <div class="premium-card-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                                <h3 data-i18n="cat-title-genel">Genel & Koruyucu</h3>
+                                <ul class="premium-card-list">
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#genel">Diş Muayenesi & CBCT</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#genel">Kanal Tedavisi</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#genel">Lazer Tedavisi</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#genel">Estetik Diş Dolgusu</a></li>
+                                </ul>
+                                <a href="hizmetler.html#genel" class="premium-explore-btn">Tümünü İncele <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Category 4: Ortodonti -->
+                        <div class="premium-card" style="background-image: url('video/service-ortho.png');" onclick="window.location.href='hizmetler.html#ortodonti'">
+                            <div class="premium-card-content">
+                                <div class="premium-card-icon"><i class="fa-solid fa-face-smile-beam"></i></div>
+                                <h3 data-i18n="cat-title-ortodonti">Ortodonti & Çocuk</h3>
+                                <ul class="premium-card-list">
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#ortodonti">Şeffaf Plak (Invisalign)</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#ortodonti">Metal & Porselen Tel</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#ortodonti">Çocuk Diş Hekimliği</a></li>
+                                    <li><i class="fa-solid fa-check"></i> <a href="hizmetler.html#ortodonti">Diş Eti Tedavileri</a></li>
+                                </ul>
+                                <a href="hizmetler.html#ortodonti" class="premium-explore-btn">Tümünü İncele <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TEAM SECTION -->
+            <section class="team-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="badge" data-i18n="team-badge">✨ Hekimlerimiz</span>
+                        <h2 data-i18n="team-title">Alanında Uzman Kadromuz</h2>
+                        <p data-i18n="team-desc">Size en iyi tedavi ve bakım hizmetini sunmak için çalışan uzman hekim kadromuz.</p>
+                    </div>
+                    
+                    <div class="team-carousel-container" id="team-carousel">
+                        <!-- Dinamik doktor kartları buraya gelecek -->
+                    </div>
+                    
+                    <div class="carousel-nav-buttons">
+                        <button class="carousel-dot active" onclick="scrollCarousel('team-carousel', 0)"></button>
+                        <button class="carousel-dot" onclick="scrollCarousel('team-carousel', 1)"></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TESTIMONIALS SECTION -->
+            <section class="testimonials-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="badge" data-i18n="reviews-badge">✨ Hasta Yorumları</span>
+                        <h2 data-i18n="reviews-title">Gülüşünü Yenilediğimiz Hastalarımız</h2>
+                        <p data-i18n="reviews-desc">Tedavi süreçlerini başarıyla tamamladığımız hastalarımızın kliniğimiz hakkındaki görüşleri.</p>
+                    </div>
+                    
+                    <div class="testimonials-carousel" id="reviews-carousel">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Esat Bey'e implant tedavisi için gittim. Tedavi süresince son derece ilgili, açıklayıcı ve güler yüzlüydü. Ağrısız bir işlem gerçekleştirdik, sonuçtan çok memnunum."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AB</div>
+                                <div class="author-info">
+                                    <h4>Ahmet Bilal</h4>
+                                    <span data-i18n="t-treat-1">İmplant Tedavisi</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Şeffaf plak tedavim 1 yıl sürdü ve sonuç harika oldu. Dişlerim tam istediğim gibi düzeltildi. Selin Hanım ve ekibine sonsuz teşekkürler."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">EY</div>
+                                <div class="author-info">
+                                    <h4>Elif Yılmaz</h4>
+                                    <span data-i18n="t-treat-2">Şeffaf Plak (Invisalign)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Tomografi çekimi ve muayene aşaması çok profesyonelceydi. Tüm sorunlarımı 3 boyutlu analiz ederek anlattılar. Çok samimi ve temiz bir ortam."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MD</div>
+                                <div class="author-info">
+                                    <h4>Mustafa Demir</h4>
+                                    <span data-i18n="t-treat-3">Genel Muayene & Teşhis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-nav-buttons">
+                        <button class="carousel-dot active" onclick="scrollCarousel('reviews-carousel', 0)"></button>
+                        <button class="carousel-dot" onclick="scrollCarousel('reviews-carousel', 1)"></button>
+                    </div>
+                    
+                    <div class="review-submit-section" style="margin-top: 40px; padding: 30px; background: var(--surface); border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow);">
+                        <h3 style="margin-bottom: 15px; color: var(--primary-dark);">Siz de Yorum Bırakın</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 14px;">Kliniğimiz hakkındaki görüşlerinizi bizimle paylaşın.</p>
+                        <form id="public-review-form" style="display: flex; flex-direction: column; gap: 15px;">
+                            <input type="text" name="isim" id="review-isim" placeholder="Adınız Soyadınız *" required style="padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 14px; outline: none;">
+                            <textarea name="yorum" id="review-yorum" rows="4" placeholder="Yorumunuz *" required style="padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 14px; resize: vertical; outline: none;"></textarea>
+                            <button type="submit" class="premium-btn" style="align-self: flex-start; padding: 12px 24px; background: var(--primary); color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s;" onmouseover="this.style.background='var(--primary-dark)'" onmouseout="this.style.background='var(--primary)'">
+                                <i class="fa-solid fa-paper-plane"></i> Yorumu Gönder
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- SSS (FAQ) SECTION -->
+            <section class="faq-section" style="padding: 60px 0; background: var(--bg2);">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="badge">✨ Merak Edilenler</span>
+                        <h2>Sıkça Sorulan Sorular</h2>
+                        <p>Hastalarımızdan en çok gelen sorular ve uzman hekimlerimizin yanıtları.</p>
+                    </div>
+                    
+                    <div class="faq-accordion" id="faq-accordion" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+                        <!-- Dinamik SSS öğeleri buraya gelecek -->
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 40px;">
+                        <p style="margin-bottom: 15px; color: var(--text-muted);">Cevabını bulamadığınız bir sorunuz mu var?</p>
+                        <button class="btn btn-primary" onclick="acSoruModal()">
+                            <i class="fa-solid fa-paper-plane"></i> Bize Soru Sorun
                         </button>
-                        <div class="lang-dropdown" id="lang-dropdown">
-                            <a href="#" onclick="changeLanguage('tr'); return false;">Türkçe</a>
-                            <a href="#" onclick="changeLanguage('en'); return false;">English</a>
-                            <a href="#" onclick="changeLanguage('ar'); return false;">العربية</a>
-                            <a href="#" onclick="changeLanguage('de'); return false;">Deutsch</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- HASTA SORU MODAL -->
+            <div id="hasta-soru-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(4px);">
+                <div style="background:#fff; border-radius:16px; width:90%; max-width:500px; box-shadow:0 20px 60px rgba(0,0,0,0.3); animation:slideUpModal 0.3s ease; overflow:hidden;">
+                    <div style="padding:20px 24px; border-bottom:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; background:linear-gradient(135deg,#006d8f,#00b4d8);">
+                        <h3 style="margin:0; color:#fff; font-size:18px; font-weight:600;"><i class="fa-solid fa-circle-question" style="margin-right:8px;"></i>Bize Soru Sorun</h3>
+                        <button onclick="kapatSoruModal()" style="background:rgba(255,255,255,0.2); border:none; color:#fff; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.35)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">✕</button>
+                    </div>
+                    <form id="hasta-soru-form" style="padding:24px;">
+                        <div style="margin-bottom:16px;">
+                            <label style="display:block; font-weight:600; font-size:13px; color:#475569; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Adınız Soyadınız *</label>
+                            <input type="text" id="soru-hasta-adi" placeholder="Adınız Soyadınız" required style="width:100%; padding:12px 16px; border:1px solid #e2e8f0; border-radius:10px; font-size:14px; font-family:inherit; outline:none; transition:border-color 0.2s; color:#1e293b; box-sizing:border-box;" onfocus="this.style.borderColor='#00b4d8'" onblur="this.style.borderColor='#e2e8f0'">
                         </div>
-                    </div>
-                    <a href="tel:05551234567" class="header-phone"><i class="fa-solid fa-phone"></i>0555 123 45 67</a>
-
-                    <a href="randevu.html" class="btn-cta" data-i18n="btn-cta">Hemen Randevu Al</a>
-                </div>
-                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menü">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </header>
-
-        <!-- MOBILE MENU DRAWER & OVERLAY -->
-        <div class="mobile-overlay" id="mobile-overlay"></div>
-        <div class="mobile-drawer" id="mobile-drawer">
-            <div class="drawer-header">
-                <div class="logo-container">
-                    <img src="video/logo.png" alt="Logo" class="logo-img">
-                    <span class="logo">Esat Kılınç Diş Kliniği<span>.</span></span>
-                </div>
-                <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Kapat">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="drawer-body">
-                <nav class="drawer-nav">
-                    <a href="index.html" class="drawer-nav-btn active" data-i18n-nav="home"><i
-                            class="fa-solid fa-house"></i> <span data-i18n="nav-home">Ana Sayfa</span></a>
-                    <a href="hakkimizda.html" class="drawer-nav-btn" data-i18n-nav="about"><i
-                            class="fa-solid fa-circle-info"></i> <span data-i18n="nav-about">Hakkımızda</span></a>
-                    <a href="hizmetler.html" class="drawer-nav-btn" data-i18n-nav="services"><i
-                            class="fa-solid fa-tooth"></i> <span data-i18n="nav-services">Hizmetler</span></a>
-                    <a href="galeri.html" class="drawer-nav-btn" data-i18n-nav="gallery"><i
-                            class="fa-solid fa-image"></i>
-                        <span data-i18n="nav-gallery">Galeri</span></a>
-                    <a href="makaleler.html" class="drawer-nav-btn" data-i18n-nav="articles"><i
-                            class="fa-solid fa-newspaper"></i> <span data-i18n="nav-articles">Makaleler</span></a>
-                    <a href="#contact" class="drawer-nav-btn" data-i18n-nav="contact"><i
-                            class="fa-solid fa-location-dot"></i> <span data-i18n="nav-contact">İletişim</span></a>
-                </nav>
-
-                <div class="drawer-lang-section">
-                    <div class="lang-title"><i class="fa-solid fa-globe"></i> Dil / Language</div>
-                    <div class="drawer-lang-links">
-                        <a href="#" data-lang="tr" onclick="changeLanguage('tr'); return false;">Türkçe</a>
-                        <a href="#" data-lang="en" onclick="changeLanguage('en'); return false;">English</a>
-                        <a href="#" data-lang="ar" onclick="changeLanguage('ar'); return false;">العربية</a>
-                        <a href="#" data-lang="de" onclick="changeLanguage('de'); return false;">Deutsch</a>
-                    </div>
+                        <div style="margin-bottom:20px;">
+                            <label style="display:block; font-weight:600; font-size:13px; color:#475569; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px;">Sorunuz *</label>
+                            <textarea id="soru-icerik" placeholder="Lütfen sorunuzu buraya yazın..." required style="width:100%; min-height:120px; padding:12px 16px; border:1px solid #e2e8f0; border-radius:10px; font-size:14px; font-family:inherit; outline:none; resize:vertical; transition:border-color 0.2s; color:#1e293b; box-sizing:border-box;" onfocus="this.style.borderColor='#00b4d8'" onblur="this.style.borderColor='#e2e8f0'"></textarea>
+                        </div>
+                        <div style="display:flex; gap:12px; justify-content:flex-end;">
+                            <button type="button" onclick="kapatSoruModal()" style="padding:11px 22px; border:1px solid #e2e8f0; background:#f8fafc; color:#64748b; border-radius:10px; cursor:pointer; font-size:14px; font-weight:500; font-family:inherit; transition:all 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='#f8fafc'">İptal</button>
+                            <button type="submit" id="soru-gonder-btn" style="padding:11px 22px; background:linear-gradient(135deg,#006d8f,#00b4d8); color:#fff; border:none; border-radius:10px; cursor:pointer; font-size:14px; font-weight:600; font-family:inherit; transition:all 0.2s; display:flex; align-items:center; gap:8px;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'"><i class="fa-solid fa-paper-plane"></i> Gönder</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="drawer-footer" style="display: flex; flex-direction: column; gap: 8px;">
-                <a href="tel:05551234567" class="drawer-phone"><i class="fa-solid fa-phone"></i> 0555 123 45 67</a>
-
-                <a href="randevu.html" class="drawer-btn-cta" data-i18n="btn-cta">Hemen Randevu Al</a>
-            </div>
+            <style>
+            @keyframes slideUpModal {
+                from { opacity:0; transform:translateY(20px); }
+                to { opacity:1; transform:translateY(0); }
+            }
+            </style>
         </div>
+    </section>
 
-        <main class="main">
+    </main>
 
-            <!-- HOME PAGE (Landing) -->
-            <div id="home-page" class="page active">
-
-                <!-- HERO SECTION -->
-                <section class="hero">
-                    <div class="hero-bg"></div> <!-- Arka plan görseli için -->
-                    <div class="container hero-container">
-                        <div class="hero-text">
-                            <a href="makaleler.html" class="badge" data-i18n="hero-badge"
-                                style="text-decoration: none; cursor: pointer;">✨ Doktor Köşesi</a>
-                            <h1 data-i18n="hero-title">Sağlıklı Gülüşler,<br>Mutlu Yarınlar.</h1>
-                            <p data-i18n="hero-desc">En son teknoloji CBCT ve dijital röntgen cihazlarımız ile alanında
-                                uzman kadromuz, ağız ve diş sağlığınız için en doğru teşhis ve premium tedavi
-                                çözümlerini sunuyor. Güvenilir ve benzersiz bir klinik deneyimi.</p>
-                            <div class="hero-buttons">
-                                <a href="randevu.html" class="btn-primary-lg" data-i18n="btn-hero-app">Randevu
-                                    Oluştur</a>
-                                <a href="hizmetler.html" class="btn-outline-lg" data-i18n="btn-hero-serv">Hizmetleri
-                                    İncele</a>
-                            </div>
-
-                            <div class="trust-indicators">
-                                <div class="trust-item">
-                                    <strong>10.000+</strong>
-                                    <span data-i18n="trust-patients">Başarılı Tedavi</span>
-                                </div>
-                                <div class="trust-item">
-                                    <strong>Uzman</strong>
-                                    <span data-i18n="trust-exp">Uzman Hekim Kadrosu</span>
-                                </div>
-                                <div class="trust-item">
-                                    <strong>%100</strong>
-                                    <span data-i18n="trust-rating">Hasta Memnuniyeti</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hero-visual">
-                            <!-- Hero Video Container -->
-                            <div class="hero-video-container">
-                                <img src="video/clinic.png" alt="Esat Kılınç Diş Kliniği"
-                                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ABOUT SECTION (HAKKIMIZDA) -->
-                <section class="home-about">
-                    <div class="container home-about-container">
-                        <div class="home-about-visual">
-                            <div class="about-image-wrapper">
-                                <img src="video/dentist.png" alt="Dt. Esat Kılınç Diş Kliniği">
-                                <div class="experience-badge">
-                                    <h3>5</h3>
-                                    <span data-i18n="trust-exp">Yıllık Deneyim</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="home-about-text">
-                            <span class="badge" data-i18n="about-badge">✨ Hakkımızda</span>
-                            <h2 data-i18n="about-title">Gülüşünüz Bizim İçin Değerli</h2>
-                            <p data-i18n="about-p1">Ağız ve diş sağlığı, genel sağlığın ayrılmaz bir parçasıdır.
-                                Kliniğimiz,
-                                hastalarımıza sağlıklı, estetik ve özgüvenli gülüşler kazandırma hedefiyle kurulmuştur.
-                            </p>
-                            <p data-i18n="about-p2">Kliniğimizde; genel diş tedavilerinin yanı sıra estetik diş
-                                hekimliği,
-                                implant uygulamaları, ortodonti, protez tedavileri ve diş beyazlatma gibi geniş kapsamlı
-                                hizmetler sunulmaktadır.</p>
-                            <p data-i18n="about-p3">Bizim için her hasta özeldir. Güler yüzlü ekibimiz ile birlikte, diş
-                                hekimi korkusunu en aza indiren, stressiz bir deneyim sunmayı hedefliyoruz.</p>
-                            <a href="hakkimizda.html" class="btn-readmore"><span data-i18n="btn-readmore">Devamını
-                                    Oku</span> <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SERVICES SECTION -->
-                <section class="services">
-                    <div class="container">
-                        <div class="section-header">
-                            <h2 data-i18n="services-title">Uzmanlık Alanlarımız</h2>
-                            <p data-i18n="services-desc">Her biri alanında uzman hekimlerimizle sunduğumuz ayrıcalıklı
-                                tedaviler.</p>
-                        </div>
-
-                        <div class="service-grid">
-                            <!-- 1. Ortodonti Tedavisi -->
-                            <div class="service-card">
-                                <div class="icon-box">😬</div>
-                                <h3 data-i18n="s-orto">Ortodonti Tedavisi</h3>
-                                <p data-i18n="s-orto-desc">Diş çapraşıklıklarının diş telleri ile düzeltilmesi.</p>
-                                <button class="service-link" onclick="openModal('ortodonti')"
-                                    data-i18n="btn-detail">Detaylı Bilgi →</button>
-                            </div>
-                            <!-- 2. Şeffaf Plak (Invisalign) -->
-                            <div class="service-card">
-                                <div class="icon-box">💎</div>
-                                <h3 data-i18n="s-invisalign">Şeffaf Plak (Invisalign)</h3>
-                                <p data-i18n="s-invisalign-desc">Telsiz, görünmez plaklarla yapılan konforlu ortodontik
-                                    tedavi.</p>
-                                <button class="service-link" onclick="openModal('invisalign')"
-                                    data-i18n="btn-detail">Detaylı Bilgi →</button>
-                            </div>
-                            <!-- 3. Dental İmplant -->
-                            <div class="service-card">
-                                <div class="icon-box">🔩</div>
-                                <h3 data-i18n="s-implant">Dental İmplant</h3>
-                                <p data-i18n="s-implant-desc">Eksik dişlerin yerine uygulanan, doğal dişe en yakın yapay
-                                    kök tedavisi.</p>
-                                <button class="service-link" onclick="openModal('implant')"
-                                    data-i18n="btn-detail">Detaylı Bilgi →</button>
-                            </div>
-                            <!-- 4. Zirkonyum Kaplama -->
-                            <div class="service-card">
-                                <div class="icon-box">💎</div>
-                                <h3 data-i18n="s-zirkonyum">Zirkonyum Kaplama</h3>
-                                <p data-i18n="s-zirkonyum-desc">Estetik ve dayanıklılığı bir arada sunan, doğal
-                                    görünümlü kaplama çözümleri.</p>
-                                <button class="service-link" onclick="openModal('zirkonyum')"
-                                    data-i18n="btn-detail">Detaylı Bilgi →</button>
-                            </div>
-                            <!-- 5. Kanal Tedavisi -->
-                            <div class="service-card">
-                                <div class="icon-box">🦷</div>
-                                <h3 data-i18n="s-kanal">Kanal Tedavisi</h3>
-                                <p data-i18n="s-kanal-desc">İltihaplı dişin sinirlerinin temizlenerek dişin ağızda
-                                    tutulmasını sağlayan tedavi.</p>
-                                <button class="service-link" onclick="openModal('kanal')" data-i18n="btn-detail">Detaylı
-                                    Bilgi →</button>
-                            </div>
-                            <!-- 6. Gömülü Diş ve Normal Diş Çekimi -->
-                            <div class="service-card">
-                                <div class="icon-box">🦷</div>
-                                <h3 data-i18n="s-gomulu">Gömülü Diş ve Normal Diş Çekimi</h3>
-                                <p data-i18n="s-gomulu-desc">Gömülü yirmi yaş dişleri ve normal diş çekimlerinin ağrısız
-                                    ve cerrahi yöntemlerle yapılması.</p>
-                                <button class="service-link" onclick="openModal('gomulu')"
-                                    data-i18n="btn-detail">Detaylı Bilgi →</button>
-                            </div>
-                            <!-- 7. Diş Dolgusu -->
-                            <div class="service-card">
-                                <div class="icon-box">🦷</div>
-                                <h3 data-i18n="s-dolgu">Diş Dolgusu</h3>
-                                <p data-i18n="s-dolgu-desc">Çürük dişlerin temizlenip kompozit (estetik) malzemelerle
-                                    restore edilmesi.</p>
-                                <button class="service-link" onclick="openModal('dolgu')" data-i18n="btn-detail">Detaylı
-                                    Bilgi →</button>
-                            </div>
-                            <!-- 8. Çocuk Diş Hekimliği -->
-                            <div class="service-card">
-                                <div class="icon-box">👶</div>
-                                <h3 data-i18n="s-pedodonti">Çocuk Diş Hekimliği</h3>
-                                <p data-i18n="s-pedodonti-desc">0-13 yaş grubu çocukların süt ve daimi dişlerinin
-                                    korunması ve tedavisi.</p>
-                                <button class="service-link" onclick="openModal('pedodonti')"
-                                    data-i18n="btn-detail">Detaylı Bilgi →</button>
-                            </div>
-                            <!-- 9. Muayene ve Teşhis (Tomografi Çekimi / CBCT) -->
-                            <div class="service-card">
-                                <div class="icon-box">🩺</div>
-                                <h3 data-i18n="s-muayene">Muayene ve Teşhis (Tomografi Çekimi / CBCT)</h3>
-                                <p data-i18n="s-muayene-desc">Detaylı muayene, 3D Tomografi (CBCT) çekimi ve radyolojik
-                                    analiz ile eksiksiz teşhis.</p>
-                                <button class="service-link" onclick="openModal('muayene')"
-                                    data-i18n="btn-detail">Detaylı Bilgi →</button>
-                            </div>
-                        </div>
-
-                        <!-- View All Services Button -->
-                        <div style="text-align: center; margin-top: 40px;">
-                            <a href="hizmetler.html" class="btn-outline-lg" style="display: inline-block;"
-                                data-i18n="btn-all-services">Daha Fazlasını
-                                Görmek İçin Tıklayın →</a>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-        </main>
-
-        <footer class="footer" id="contact">
-            <div class="container footer-content">
-                <div class="footer-col">
-                    <h3>Esat Kılınç Diş Kliniği.</h3>
-                    <p style="opacity: 0.7; color: #cbd5e1;">Modern diş hekimliğinin güvenilir adresi.</p>
-                    <div class="footer-social">
-                        <a href="https://www.instagram.com/dt.esatkilinc/" target="_blank" class="social-icon"><i
-                                class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer-quick">Hızlı Bağlantılar</h4>
-                    <ul>
-                        <li><a href="index.html" data-i18n="nav-home">Ana Sayfa</a></li>
-                        <li><a href="hakkimizda.html" data-i18n="nav-about">Hakkımızda</a></li>
-                        <li><a href="hizmetler.html" data-i18n="nav-services">Hizmetler</a></li>
-                        <li><a href="galeri.html" data-i18n="nav-gallery">Galeri</a></li>
-
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-i18n="footer-contact">İletişim</h4>
-                    <ul>
-                        <li><i class="fa-solid fa-phone"></i> +90 555 123 45 67</li>
-                        <li><i class="fa-solid fa-envelope"></i> info@esatkilinc.com</li>
-                        <li><i class="fa-solid fa-location-dot"></i> <a
-                                href="https://www.google.com/maps/search/?api=1&query=P%C4%B1rlanta+d%C3%BC%C4%9F%C3%BCn+salonu+yan%C4%B1%2C+60.+Y%C4%B1l%2C+Yavuz+Sultan+Selim+Cd.+No%3A107A%2C+27100+%C5%9Eahinbey%2Fİstanbul"
-                                target="_blank" class="footer-address-link">Merkez Mah. Atatürk Cad. No:1,
-                                Şişli/İstanbul</a></li>
-                        <li><i class="fa-solid fa-clock"></i> Hafta içi: 09:30 - 23:00<br>Cumartesi: 10:00 - 18:00</li>
-                    </ul>
+    <footer class="footer" id="contact">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Esat Kılınç Diş Kliniği.</h3>
+                <p style="opacity: 0.7; color: #cbd5e1;">Modern diş hekimliğinin güvenilir adresi.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/dt.esatkilinc/" target="_blank" class="social-icon"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Esat Kılınç Diş Kliniği Diş Kliniği. <span data-i18n="footer-copyright">Tüm hakları
-                        saklıdır.</span></p>
+            <div class="footer-col">
+                <h4 data-i18n="footer-quick">Hızlı Bağlantılar</h4>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav-home">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html" data-i18n="nav-about">Hakkımızda</a></li>
+                    <li><a href="hizmetler.html" data-i18n="nav-services">Hizmetler</a></li>
+                    <li><a href="galeri.html" data-i18n="nav-gallery">Galeri</a></li>
+
+                </ul>
             </div>
-        </footer>
-
-        <!-- Fixed Floating Phone Button -->
-        <a href="tel:05551234567" class="phone-float-btn" title="Hemen Arayın">
-            <i class="fa-solid fa-phone"></i>
-        </a>
-
-        <!-- Fixed WhatsApp Button -->
-        <a href="https://wa.me/905551234567" target="_blank" class="whatsapp-btn" title="WhatsApp ile İletişime Geçin">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-
-        <script src="translations.js"></script>
-        <script src="theme-lang.js"></script>
-        <script src="script.js?v=3.0"></script>
-
-        <!-- SERVICE MODAL -->
-        <div id="service-modal" class="modal-overlay">
-            <div class="modal-content">
-                <div class="modal-close" onclick="closeModal()">✕</div>
-                <h3 id="modal-title" class="modal-title">Hizmet Detayı</h3>
-                <div id="modal-body" class="modal-body">
-                    <!-- İçerik JS ile gelecek -->
+            <div class="footer-col">
+                <h4 data-i18n="footer-contact">İletişim</h4>
+                <ul>
+                    <li><i class="fa-solid fa-phone"></i> +90 555 123 45 67</li>
+                    <li><i class="fa-solid fa-envelope"></i> info@esatkilinc.com</li>
+                    <li><i class="fa-solid fa-location-dot"></i> <a
+                            href="https://www.google.com/maps/search/?api=1&query=P%C4%B1rlanta+d%C3%BC%C4%9F%C3%BCn+salonu+yan%C4%B1%2C+60.+Y%C4%B1l%2C+Yavuz+Sultan+Selim+Cd.+No%3A107A%2C+27100+%C5%9Eahinbey%2Fİstanbul"
+                            target="_blank" class="footer-address-link">Merkez Mah. Atatürk Cad. No:1,
+                            Şişli/İstanbul</a></li>
+                    <li><i class="fa-solid fa-clock"></i> Hafta içi: 09:30 - 23:00<br>Cumartesi: 10:00 - 18:00</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer-map">Konumumuz</h4>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3184.8772093077717!2d37.3323049!3d37.0375996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1531e138a4d4b1a7%3A0xeb3f33abf461dfbf!2s60.+Y%C4%B1l%2C+Yavuz+Sultan+Selim+Cd.+No%3A107%2C+27100+Gaziantep!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Esat Kılınç Diş Kliniği Diş Kliniği. <span data-i18n="footer-copyright">Tüm hakları
+                    saklıdır.</span></p>
+        </div>
+    </footer>
+
+    <!-- Fixed Floating Phone Button -->
+    <a href="tel:05551234567" class="phone-float-btn" title="Hemen Arayın">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+
+    <!-- Fixed Floating Location Button -->
+    <a href="https://maps.google.com/?q=Esat+Kılınç+Diş+Kliniği+İstanbul" target="_blank" class="location-float-btn" title="Konumumuzu Görün">
+        <i class="fa-solid fa-location-dot"></i>
+    </a>
+
+    <!-- Fixed WhatsApp Button -->
+    <a href="https://wa.me/905551234567" target="_blank" class="whatsapp-btn" title="WhatsApp ile İletişime Geçin">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="translations.js"></script>
+    <script src="theme-lang.js"></script>
+    <script src="script.js?v=3.0"></script>
+
+    <!-- SERVICE MODAL -->
+    <div id="service-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal()">✕</div>
+            <h3 id="modal-title" class="modal-title">Hizmet Detayı</h3>
+            <div id="modal-body" class="modal-body">
+                <!-- İçerik JS ile gelecek -->
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

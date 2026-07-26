@@ -11,8 +11,8 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/jpeg" href="/video/logo-yeni.jpeg">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="/video/logo-yeni.jpeg">
     <link rel="apple-touch-icon" href="/favicon.png">
     <style>
         *,
@@ -1399,6 +1399,31 @@
             background: var(--accent);
             color: #fff;
         }
+        
+        .p-personel-satir, .p-personel-table-header {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1.2fr;
+            gap: 12px;
+            align-items: center;
+            padding: 14px 18px;
+            margin-bottom: 6px;
+        }
+        .p-personel-table-header {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+        .p-personel-satir {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: background var(--transition), transform var(--transition);
+        }
+        .p-personel-satir:hover {
+            background: var(--surface);
+            transform: translateX(2px);
+        }
     </style>
 </head>
 
@@ -1412,7 +1437,7 @@
         <div class="p-sidebar-brand">
             <img src="/video/logo.png" alt="Logo" class="p-sidebar-logo">
             <div class="p-sidebar-brand-text">
-                <h2>Dr. M. Emin Başyıldız</h2>
+                <h2>Dr. Esat Kılınç</h2>
                 <span>Yönetim Paneli</span>
             </div>
         </div>
@@ -1423,10 +1448,25 @@
                 <i class="fa-solid fa-calendar-check"></i> Randevular
             </button>
             <button class="p-nav-btn" data-section="makaleler" id="nav-makaleler">
-                <i class="fa-solid fa-newspaper"></i> Makaleler
+                <i class="fa-solid fa-file-lines"></i> Doktor Köşesi
+            </button>
+            <button class="p-nav-btn" data-section="galeri" id="nav-galeri">
+                <i class="fa-solid fa-images"></i> Galeri Yönetimi
+            </button>
+            <button class="p-nav-btn" data-section="yorumlar" id="nav-yorumlar">
+                <i class="fa-solid fa-comments"></i> Hasta Yorumları
+            </button>
+            <button class="p-nav-btn" data-section="doktorlar" id="nav-doktorlar">
+                <i class="fa-solid fa-user-doctor"></i> Doktor Yönetimi
+            </button>
+            <button class="p-nav-btn" data-section="faq" id="nav-faq">
+                <i class="fa-solid fa-circle-question"></i> S.S.S. Yönetimi
             </button>
             <button class="p-nav-btn" data-section="odemeler" id="nav-odemeler">
                 <i class="fa-solid fa-wallet"></i> Ödeme Takip
+            </button>
+            <button class="p-nav-btn" data-section="personel" id="nav-personel">
+                <i class="fa-solid fa-users-gear"></i> Kullanıcı Ayarları
             </button>
         </nav>
 
@@ -1559,9 +1599,56 @@
             <div class="p-section" id="section-makaleler">
                 <div class="p-section-header">
                     <h2 class="p-section-title"><i class="fa-solid fa-newspaper"
-                            style="color:var(--accent);margin-right:8px;"></i>Makaleler</h2>
+                            style="color:var(--accent);margin-right:8px;"></i>Doktor Köşesi</h2>
                 </div>
                 <div id="p-article-list" class="p-articles-grid">
+                </div>
+            </div>
+            <!-- ── GALERİ SEKSİYONU ── -->
+            <div class="p-section" id="section-galeri">
+                <div class="p-section-header">
+                    <h2 class="p-section-title"><i class="fa-solid fa-images" style="color:var(--accent);margin-right:8px;"></i>Galeri Yönetimi</h2>
+                </div>
+                <div class="p-toolbar">
+                    <button class="p-btn" id="admin-yeni-galeri-btn" type="button" style="margin-left: auto;">
+                        <i class="fa-solid fa-plus"></i> Yeni Fotoğraf Ekle
+                    </button>
+                </div>
+                <div id="p-gallery-list" class="p-articles-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top:20px;">
+                    <!-- Dinamik galeri öğeleri buraya gelecek -->
+                </div>
+            </div>
+            <!-- ── YORUMLAR SEKSİYONU ── -->
+            <div class="p-section" id="section-yorumlar">
+                <div class="p-section-header">
+                    <h2 class="p-section-title"><i class="fa-solid fa-comments" style="color:var(--accent);margin-right:8px;"></i>Hasta Yorumları Yönetimi</h2>
+                </div>
+                <div id="p-yorumlar-list" class="p-articles-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top:20px;">
+                    <!-- Dinamik yorum öğeleri buraya gelecek -->
+                </div>
+            </div>
+            <!-- ── DOKTORLAR SEKSİYONU ── -->
+            <div class="p-section" id="section-doktorlar">
+                <div class="p-section-header">
+                    <h2 class="p-section-title"><i class="fa-solid fa-user-doctor" style="color:var(--accent);margin-right:8px;"></i>Doktor Yönetimi</h2>
+                </div>
+                <div class="p-toolbar">
+                    <button class="p-btn" id="admin-yeni-doktor-btn" type="button" style="margin-left: auto;">
+                        <i class="fa-solid fa-plus"></i> Yeni Doktor Ekle
+                    </button>
+                </div>
+                <div id="p-doktorlar-list" class="p-articles-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top:20px;">
+                    <!-- Dinamik doktor öğeleri buraya gelecek -->
+                </div>
+            </div>
+            
+            <!-- ── S.S.S. SEKSİYONU ── -->
+            <div class="p-section" id="section-faq">
+                <div class="p-section-header">
+                    <h2 class="p-section-title"><i class="fa-solid fa-circle-question" style="color:var(--accent);margin-right:8px;"></i>Soru-Cevap Yönetimi</h2>
+                </div>
+                <div id="p-faq-list" class="p-articles-grid" style="display: grid; grid-template-columns: 1fr; gap: 15px; margin-top:20px;">
+                    <!-- Dinamik FAQ öğeleri buraya gelecek -->
                 </div>
             </div>
             <!-- ── ÖDEMELER SEKSİYONU ── -->
@@ -1579,6 +1666,29 @@
                 </div>
                 <div id="odeme-listesi"></div>
                 <div id="odeme-pagination-container" class="p-pagination"></div>
+            </div>
+
+            <!-- ── PERSONEL SEKSİYONU ── -->
+            <div class="p-section" id="section-personel">
+                <div class="p-section-header">
+                    <h2 class="p-section-title"><i class="fa-solid fa-users-gear"
+                            style="color:var(--accent);margin-right:8px;"></i>Personel & Kullanıcı Ayarları</h2>
+                </div>
+                <div class="p-stats-grid" style="margin-bottom: 20px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));">
+                    <div class="p-stat-card total" style="max-width: 280px; background: rgba(0, 180, 216, 0.05);">
+                        <div class="p-stat-icon" style="background: rgba(0, 180, 216, 0.1); color: var(--accent);"><i class="fa-solid fa-users"></i></div>
+                        <div class="p-stat-info">
+                            <span class="p-stat-val" id="toplam-personel">0</span>
+                            <span class="p-stat-label">Toplam Personel</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-toolbar">
+                    <button class="p-btn" id="admin-yeni-personel-btn" type="button" style="margin-left: auto;" onclick="(function(){var m=document.getElementById('admin-personel-modal');var f=document.getElementById('admin-personel-form');var t=document.getElementById('personel-modal-title-el');var i=document.getElementById('personel-id-input');var p=document.getElementById('personel-password-input');var l=document.getElementById('personel-password-label');var h=document.getElementById('personel-password-help');if(f)f.reset();if(t)t.innerHTML='<i class=&quot;fa-solid fa-user-plus&quot;></i> Yeni Personel Ekle';if(i)i.value='';if(p)p.required=true;if(l)l.textContent='Şifre *';if(h)h.textContent='Personel eklerken şifre zorunludur.';if(m)m.classList.add('open');})()">
+                        <i class="fa-solid fa-plus"></i> Yeni Personel Ekle
+                    </button>
+                </div>
+                <div id="personel-listesi"></div>
             </div>
 
         </div>
@@ -1625,6 +1735,36 @@
                     <button type="button" class="p-btn p-btn-ghost" id="makale-iptal-btn">İptal</button>
                     <button type="submit" class="p-btn p-btn-primary" id="makale-kaydet-btn">
                         <i class="fa-solid fa-floppy-disk"></i> Yayınla
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ─── GALERİ YÜKLEME MODALI ─── -->
+    <div class="p-modal-overlay" id="admin-galeri-modal">
+        <div class="p-modal">
+            <div class="p-modal-header">
+                <div class="p-modal-title">
+                    <i class="fa-solid fa-image"></i> Yeni Galeri Fotoğrafı Ekle
+                </div>
+                <button class="p-modal-close" id="admin-galeri-modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="admin-galeri-form" enctype="multipart/form-data">
+                <div class="p-modal-body">
+                    <div class="p-form-group">
+                        <label class="p-form-label">Eski Hali Fotoğrafı *</label>
+                        <input type="file" name="eski_foto" class="p-form-input" accept="image/*" required>
+                    </div>
+                    <div class="p-form-group">
+                        <label class="p-form-label">Yeni Hali Fotoğrafı *</label>
+                        <input type="file" name="yeni_foto" class="p-form-input" accept="image/*" required>
+                    </div>
+                </div>
+                <div class="p-modal-footer">
+                    <button type="button" class="p-btn p-btn-ghost" id="admin-galeri-iptal-btn">İptal</button>
+                    <button type="submit" class="p-btn p-btn-primary" id="admin-galeri-kaydet-btn">
+                        <i class="fa-solid fa-upload"></i> Yükle
                     </button>
                 </div>
             </form>
@@ -1772,6 +1912,137 @@
         </div>
     </div>
 
+    <!-- DOKTOR MODAL -->
+    <div class="p-modal-overlay" id="admin-doktor-modal">
+        <div class="p-modal-content" style="max-width: 500px;">
+            <div class="p-modal-header">
+                <h3><i class="fa-solid fa-user-doctor" style="color:var(--accent);margin-right:8px;"></i>Yeni Doktor Ekle</h3>
+                <button class="p-modal-close" onclick="document.getElementById('admin-doktor-modal').classList.remove('open')">✕</button>
+            </div>
+            <form id="admin-doktor-form" enctype="multipart/form-data">
+                <div class="p-modal-body">
+                    <div class="p-form-group">
+                        <label class="p-form-label">Doktor İsmi *</label>
+                        <input type="text" id="doktor-isim" name="isim" class="p-form-input" placeholder="Örn: Dr. Dt. Selin Yılmaz" required>
+                    </div>
+                    <div class="p-form-group">
+                        <label class="p-form-label">Ünvanı *</label>
+                        <input type="text" id="doktor-unvan" name="unvan" class="p-form-input" placeholder="Örn: Ortodonti Uzmanı" required>
+                    </div>
+                    <div class="p-form-group">
+                        <label class="p-form-label">Doktor Fotoğrafı *</label>
+                        <input type="file" id="doktor-foto" name="fotograf" class="p-form-input" accept="image/*" required>
+                    </div>
+                </div>
+                <div class="p-modal-footer">
+                    <button class="p-btn secondary" type="button" onclick="document.getElementById('admin-doktor-modal').classList.remove('open')">İptal</button>
+                    <button class="p-btn" type="submit"><i class="fa-solid fa-save"></i> Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- SSS (FAQ) CEVAPLAMA MODAL -->
+    <div class="p-modal-overlay" id="admin-faq-modal">
+        <div class="p-modal-content" style="max-width: 500px;">
+            <div class="p-modal-header">
+                <h3><i class="fa-solid fa-reply" style="color:var(--accent);margin-right:8px;"></i>Soruyu Cevapla</h3>
+                <button class="p-modal-close" onclick="document.getElementById('admin-faq-modal').classList.remove('open')">✕</button>
+            </div>
+            <form id="admin-faq-form">
+                <div class="p-modal-body">
+                    <input type="hidden" id="faq-id">
+                    <div style="background:var(--bg2); padding:15px; border-radius:var(--radius-sm); margin-bottom:15px;">
+                        <strong style="color:var(--primary-dark); font-size:14px;">Soru:</strong>
+                        <p id="faq-soru-text" style="color:var(--text); margin-top:5px; font-size:14px;"></p>
+                    </div>
+                    <div class="p-form-group">
+                        <label class="p-form-label">Cevabınız *</label>
+                        <textarea id="faq-cevap" class="p-form-input" style="min-height: 120px; resize: vertical;" placeholder="Hastaya verilecek cevabı buraya yazın..." required></textarea>
+                    </div>
+                </div>
+                <div class="p-modal-footer">
+                    <button class="p-btn secondary" type="button" onclick="document.getElementById('admin-faq-modal').classList.remove('open')">İptal</button>
+                    <button class="p-btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Cevapla & Yayınla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- ─── PERSONEL EKLE / DÜZENLE MODAL (ADMİN) ─── -->
+    <div class="p-modal-overlay" id="admin-personel-modal" onclick="if(event.target===this)this.classList.remove('open')">
+        <div class="p-modal" style="max-width: 400px;">
+            <div class="p-modal-header">
+                <div class="p-modal-title" id="personel-modal-title-el">
+                    <i class="fa-solid fa-user-plus"></i> Yeni Personel Ekle
+                </div>
+                <button class="p-modal-close" id="admin-personel-close" onclick="document.getElementById('admin-personel-modal').classList.remove('open')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="admin-personel-form">
+                <input type="hidden" id="personel-id-input" name="id">
+                <div class="p-modal-body">
+                    <div class="p-form-group">
+                        <label class="p-form-label">Kullanıcı Adı (TC Kimlik No) *</label>
+                        <input type="text" id="personel-username-input" name="username" class="p-form-input" required maxlength="11" pattern="\d{11}" title="Lütfen 11 haneli TC Kimlik numarasını girin.">
+                    </div>
+                    <div class="p-form-group">
+                        <label class="p-form-label" id="personel-password-label">Şifre *</label>
+                        <input type="password" id="personel-password-input" name="password" class="p-form-input" required>
+                        <small style="color:var(--text-muted);font-size:11px;margin-top:4px;display:block;" id="personel-password-help">Personel eklerken şifre zorunludur.</small>
+                    </div>
+                </div>
+                <div class="p-modal-footer">
+                    <button class="p-btn secondary" id="admin-personel-iptal-btn" type="button" onclick="document.getElementById('admin-personel-modal').classList.remove('open')">İptal</button>
+                    <button class="p-btn" type="submit">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    // Personel form submit - bağımsız script bloğu
+    (function() {
+        var form = document.getElementById('admin-personel-form');
+        if (!form) return;
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            var idInput = document.getElementById('personel-id-input');
+            var usernameInput = document.getElementById('personel-username-input');
+            var passwordInput = document.getElementById('personel-password-input');
+            var id = idInput ? idInput.value : '';
+            var username = (usernameInput ? usernameInput.value : '').trim();
+            var password = passwordInput ? passwordInput.value : '';
+
+            if (username.length !== 11 || !/^\d+$/.test(username)) {
+                alert('Kullanıcı adı (TC Kimlik No) 11 haneli sayı olmalıdır.');
+                return;
+            }
+
+            var url = id ? '/api/auth/personnel/' + id : '/api/auth/personnel';
+            var method = id ? 'PUT' : 'POST';
+            var bodyData = { username: username };
+            if (password && password.trim() !== '') bodyData.password = password;
+
+            try {
+                var res = await fetch(url, {
+                    method: method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(bodyData),
+                    credentials: 'include'
+                });
+                var result = await res.json();
+                if (result.success) {
+                    alert(result.message || 'İşlem tamamlandı.');
+                    document.getElementById('admin-personel-modal').classList.remove('open');
+                    window.location.reload();
+                } else {
+                    alert(result.message || 'Bir hata oluştu.');
+                }
+            } catch (err) {
+                alert('Sunucu bağlantı hatası.');
+            }
+        });
+    })();
+    </script>
     <script src="/script.js?v=3.1"></script>
     <script>
         // ─── PANEL NAV ───
@@ -1779,7 +2050,7 @@
         const sections = document.querySelectorAll('.p-section');
         const makaleYazBtn = document.getElementById('makale-yaz-btn');
         const topbarTitle = document.getElementById('p-topbar-title');
-        const titles = { randevular: 'Randevular', makaleler: 'Makaleler', odemeler: 'Ödeme Takip' };
+        const titles = { randevular: 'Randevular', makaleler: 'Doktor Köşesi', galeri: 'Galeri Yönetimi', yorumlar: 'Hasta Yorumları', doktorlar: 'Doktor Yönetimi', faq: 'Soru-Cevap Yönetimi', odemeler: 'Ödeme Takip', personel: 'Kullanıcı Ayarları' };
 
         navBtns.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -1787,11 +2058,19 @@
                 navBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 sections.forEach(s => s.classList.remove('active'));
-                document.getElementById('section-' + sec).classList.add('active');
+                const targetSec = document.getElementById('section-' + sec);
+                if (targetSec) targetSec.classList.add('active');
                 topbarTitle.textContent = titles[sec] || sec;
                 makaleYazBtn.style.display = sec === 'makaleler' ? 'inline-flex' : 'none';
-                if (sec === 'makaleler') yuklePanel_Makaleler();
-                if (sec === 'odemeler') yuklePanel_Odemeler();
+                
+                if (sec === 'makaleler' && typeof yuklePanel_Makaleler === 'function') yuklePanel_Makaleler();
+                if (sec === 'galeri' && typeof yuklePanel_Galeri === 'function') yuklePanel_Galeri();
+                if (sec === 'yorumlar' && typeof yuklePanel_Yorumlar === 'function') yuklePanel_Yorumlar();
+                if (sec === 'doktorlar' && typeof yuklePanel_Doktorlar === 'function') yuklePanel_Doktorlar();
+                if (sec === 'faq' && typeof yuklePanel_FAQ === 'function') yuklePanel_FAQ();
+                if (sec === 'odemeler' && typeof yuklePanel_Odemeler === 'function') yuklePanel_Odemeler();
+                if (sec === 'personel' && typeof yuklePanel_Personel === 'function') yuklePanel_Personel();
+                
                 closeSidebar();
             });
         });
@@ -1811,43 +2090,59 @@
 
         // ─── MAKALE MODAL ───
         const makaleModal = document.getElementById('makale-modal');
-        makaleYazBtn.addEventListener('click', () => makaleModal.classList.add('open'));
-        document.getElementById('makale-modal-close').addEventListener('click', () => makaleModal.classList.remove('open'));
-        document.getElementById('makale-iptal-btn').addEventListener('click', () => makaleModal.classList.remove('open'));
-        makaleModal.addEventListener('click', e => { if (e.target === makaleModal) makaleModal.classList.remove('open'); });
+        if (makaleYazBtn && makaleModal) makaleYazBtn.addEventListener('click', () => makaleModal.classList.add('open'));
+        const makaleModalCloseBtn = document.getElementById('makale-modal-close');
+        if (makaleModalCloseBtn) makaleModalCloseBtn.addEventListener('click', () => makaleModal.classList.remove('open'));
+        const makaleIptalBtn = document.getElementById('makale-iptal-btn');
+        if (makaleIptalBtn) makaleIptalBtn.addEventListener('click', () => makaleModal.classList.remove('open'));
+        if (makaleModal) makaleModal.addEventListener('click', e => { if (e.target === makaleModal) makaleModal.classList.remove('open'); });
+
+        // ─── DOKTOR MODAL ───
+        const doktorModal = document.getElementById('admin-doktor-modal');
+        const doktorEkleBtn = document.getElementById('admin-yeni-doktor-btn');
+        if (doktorEkleBtn && doktorModal) doktorEkleBtn.addEventListener('click', () => { document.getElementById('admin-doktor-form').reset(); doktorModal.classList.add('open'); });
+        if (doktorModal) doktorModal.addEventListener('click', e => { if (e.target === doktorModal) doktorModal.classList.remove('open'); });
 
         // ─── IMAGE PREVIEW ───
         const kapakInput = document.getElementById('makale-kapak');
         const kapakPreview = document.getElementById('kapak-preview');
         const uploadZone = document.getElementById('upload-zone');
 
-        kapakInput.addEventListener('change', () => {
-            const file = kapakInput.files[0];
-            if (file) {
-                kapakPreview.src = URL.createObjectURL(file);
-                kapakPreview.style.display = 'block';
-            }
-        });
+        if (kapakInput && kapakPreview) {
+            kapakInput.addEventListener('change', () => {
+                const file = kapakInput.files[0];
+                if (file) {
+                    kapakPreview.src = URL.createObjectURL(file);
+                    kapakPreview.style.display = 'block';
+                }
+            });
+        }
 
-        uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
-        uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
-        uploadZone.addEventListener('drop', e => {
-            e.preventDefault();
-            uploadZone.classList.remove('drag-over');
-            const file = e.dataTransfer.files[0];
-            if (file && file.type.startsWith('image/')) {
-                kapakInput.files = e.dataTransfer.files;
-                kapakPreview.src = URL.createObjectURL(file);
-                kapakPreview.style.display = 'block';
-            }
-        });
+        if (uploadZone) {
+            uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+            uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+            uploadZone.addEventListener('drop', e => {
+                e.preventDefault();
+                uploadZone.classList.remove('drag-over');
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.startsWith('image/') && kapakInput && kapakPreview) {
+                    kapakInput.files = e.dataTransfer.files;
+                    kapakPreview.src = URL.createObjectURL(file);
+                    kapakPreview.style.display = 'block';
+                }
+            });
+        }
 
         // ─── MAKALE FORM SUBMIT ───
-        document.getElementById('makale-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('makale-kaydet-btn');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Yükleniyor...';
+        const makaleFormElement = document.getElementById('makale-form');
+        if (makaleFormElement) {
+            makaleFormElement.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('makale-kaydet-btn');
+                if (btn) {
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Yükleniyor...';
+                }
 
             const formData = new FormData(e.target);
             try {
@@ -1874,10 +2169,13 @@
             } catch (err) {
                 showToast('Sunucu hatası', 'error');
             } finally {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Yayınla';
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Yayınla';
+                }
             }
         });
+        }
 
         // ─── MAKALELER YÜKLE (PANEL) ───
         async function yuklePanel_Makaleler() {
@@ -2257,16 +2555,25 @@
             });
         }
 
-        document.getElementById('admin-randevu-modal-close').addEventListener('click', () => adminRandevuModal.classList.remove('open'));
-        document.getElementById('admin-randevu-iptal-btn').addEventListener('click', () => adminRandevuModal.classList.remove('open'));
-        adminRandevuModal.addEventListener('click', e => { if (e.target === adminRandevuModal) adminRandevuModal.classList.remove('open'); });
+        const adminRandevuModalClose = document.getElementById('admin-randevu-modal-close');
+        if (adminRandevuModalClose) adminRandevuModalClose.addEventListener('click', () => adminRandevuModal.classList.remove('open'));
+        
+        const adminRandevuIptalBtn = document.getElementById('admin-randevu-iptal-btn');
+        if (adminRandevuIptalBtn) adminRandevuIptalBtn.addEventListener('click', () => adminRandevuModal.classList.remove('open'));
+        
+        if (adminRandevuModal) adminRandevuModal.addEventListener('click', e => { if (e.target === adminRandevuModal) adminRandevuModal.classList.remove('open'); });
 
         const odemeModal = document.getElementById('admin-odeme-modal');
-        document.getElementById('admin-odeme-modal-close').addEventListener('click', () => odemeModal.classList.remove('open'));
-        document.getElementById('admin-odeme-iptal-btn').addEventListener('click', () => odemeModal.classList.remove('open'));
-        odemeModal.addEventListener('click', e => { if (e.target === odemeModal) odemeModal.classList.remove('open'); });
+        const adminOdemeModalClose = document.getElementById('admin-odeme-modal-close');
+        if (adminOdemeModalClose) adminOdemeModalClose.addEventListener('click', () => odemeModal.classList.remove('open'));
+        
+        const adminOdemeIptalBtn = document.getElementById('admin-odeme-iptal-btn');
+        if (adminOdemeIptalBtn) adminOdemeIptalBtn.addEventListener('click', () => odemeModal.classList.remove('open'));
+        
+        if (odemeModal) odemeModal.addEventListener('click', e => { if (e.target === odemeModal) odemeModal.classList.remove('open'); });
 
-        adminRandevuForm.addEventListener('submit', async (e) => {
+        if (adminRandevuForm) {
+            adminRandevuForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(adminRandevuForm);
             const data = Object.fromEntries(formData.entries());
@@ -2299,6 +2606,7 @@
                 showToast('Bağlantı hatası', 'error');
             }
         });
+        }
 
         // ─── ÖDEMELER PANELİ YÜKLEME VE ARAMA YÖNETİMİ ───
         let odemeState = { sayfa: 1, arama: '' };
@@ -2447,6 +2755,654 @@
                     yuklePanel_Odemeler();
                 }, 300);
             });
+        }
+
+        // ─── PERSONEL PANELİ YÖNETİMİ ───
+        async function yuklePanel_Personel() {
+            const listDiv = document.getElementById('personel-listesi');
+            const totalCountEl = document.getElementById('toplam-personel');
+            if (!listDiv) return;
+
+            listDiv.innerHTML = '<div class="p-empty"><i class="fa-solid fa-spinner fa-spin"></i><p>Yükleniyor...</p></div>';
+
+            try {
+                const res = await fetch('/api/auth/personnel', {
+                    credentials: 'include'
+                });
+                const result = await res.json();
+
+                if (result.success) {
+                    if (totalCountEl) totalCountEl.textContent = result.count;
+                    renderPersoneller(result.personnel);
+                } else {
+                    if (res.status === 401 || res.status === 403) {
+                        window.location.href = '/login';
+                        return;
+                    }
+                    listDiv.innerHTML = '<div class="p-empty"><i class="fa-solid fa-triangle-exclamation"></i><p>Hata: ' + result.message + '</p></div>';
+                }
+            } catch (err) {
+                listDiv.innerHTML = '<div class="p-empty"><i class="fa-solid fa-triangle-exclamation"></i><p>Bağlantı hatası</p></div>';
+            }
+        }
+
+        function renderPersoneller(personnel) {
+            const listDiv = document.getElementById('personel-listesi');
+            if (!listDiv) return;
+            listDiv.innerHTML = '';
+
+            if (personnel.length === 0) {
+                listDiv.innerHTML = '<div class="p-empty"><i class="fa-solid fa-users-slash"></i><p>Kayıtlı personel bulunamadı.</p></div>';
+                return;
+            }
+
+            const header = document.createElement('div');
+            header.className = 'p-personel-table-header';
+            header.innerHTML = '<div>Kullanıcı Adı (TC)</div><div>Kayıt Tarihi</div><div style="text-align: right; padding-right: 15px;">İşlemler</div>';
+            listDiv.appendChild(header);
+
+            personnel.forEach(p => {
+                const row = document.createElement('div');
+                row.className = 'p-personel-satir';
+
+                const dateStr = new Date(p.created_at).toLocaleDateString('tr-TR', { 
+                    day: '2-digit', 
+                    month: 'long', 
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+                row.innerHTML = `
+                    <div>
+                        <strong class="p-hasta-ad">${p.username}</strong>
+                    </div>
+                    <div class="p-tarih-saat"><i class="fa-regular fa-clock"></i> ${dateStr}</div>
+                    <div class="p-islem-btns" style="justify-content: flex-end; gap: 8px;">
+                        <button class="p-btn-icon edit-btn" title="Personeli Düzenle" data-personel-edit-id="${p.id}" type="button"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="p-btn-icon delete-btn" title="Personeli Sil" data-personel-delete-id="${p.id}" style="color:var(--danger); border-color: rgba(239, 68, 68, 0.2);" type="button"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                `;
+
+                row.querySelector('[data-personel-edit-id]').addEventListener('click', () => {
+                    personelModalAc(p);
+                });
+
+                row.querySelector('[data-personel-delete-id]').addEventListener('click', () => {
+                    personelSil(p);
+                });
+
+                listDiv.appendChild(row);
+            });
+        }
+
+        // Modal Elemanları
+        const personelModal = document.getElementById('admin-personel-modal');
+        const personelForm = document.getElementById('admin-personel-form');
+        const personelIdInput = document.getElementById('personel-id-input');
+        const personelUsernameInput = document.getElementById('personel-username-input');
+        const personelPasswordInput = document.getElementById('personel-password-input');
+        const personelPasswordLabel = document.getElementById('personel-password-label');
+        const personelPasswordHelp = document.getElementById('personel-password-help');
+        const personelModalTitle = document.getElementById('personel-modal-title-el');
+
+        function personelModalAc(personel = null) {
+            if (!personelModal) return;
+            personelForm.reset();
+            
+            if (personel) {
+                // Düzenleme Modu
+                personelModalTitle.innerHTML = '<i class="fa-solid fa-user-pen"></i> Personel Düzenle';
+                personelIdInput.value = personel.id;
+                personelUsernameInput.value = personel.username;
+                personelPasswordInput.required = false;
+                personelPasswordLabel.textContent = 'Yeni Şifre (Değiştirmek istemiyorsanız boş bırakın)';
+                personelPasswordHelp.textContent = 'Şifreyi güncellemek istemiyorsanız bu alanı boş bırakabilirsiniz.';
+            } else {
+                // Ekleme Modu
+                personelModalTitle.innerHTML = '<i class="fa-solid fa-user-plus"></i> Yeni Personel Ekle';
+                personelIdInput.value = '';
+                personelPasswordInput.required = true;
+                personelPasswordLabel.textContent = 'Şifre *';
+                personelPasswordHelp.textContent = 'Personel eklerken şifre zorunludur.';
+            }
+            personelModal.classList.add('open');
+        }
+
+        function personelModalKapat() {
+            if (personelModal) personelModal.classList.remove('open');
+        }
+
+        const yeniPersonelBtn = document.getElementById('admin-yeni-personel-btn');
+        if (yeniPersonelBtn) {
+            yeniPersonelBtn.addEventListener('click', () => personelModalAc());
+        }
+
+        const personelCloseBtn = document.getElementById('admin-personel-close');
+        if (personelCloseBtn) {
+            personelCloseBtn.addEventListener('click', personelModalKapat);
+        }
+
+        const personelIptalBtn = document.getElementById('admin-personel-iptal-btn');
+        if (personelIptalBtn) {
+            personelIptalBtn.addEventListener('click', personelModalKapat);
+        }
+
+        if (personelModal) {
+            personelModal.addEventListener('click', e => {
+                if (e.target === personelModal) personelModalKapat();
+            });
+        }
+
+        if (personelForm) {
+            personelForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const id = personelIdInput.value;
+                const username = personelUsernameInput.value.trim();
+                const password = personelPasswordInput.value;
+
+                if (username.length !== 11 || !/^\d+$/.test(username)) {
+                    showToast('Kullanıcı adı (TC Kimlik No) 11 haneli sayı olmalıdır.', 'error');
+                    return;
+                }
+
+                const url = id ? `/api/auth/personnel/${id}` : '/api/auth/personnel';
+                const method = id ? 'PUT' : 'POST';
+                const bodyData = { username };
+                if (password && password.trim() !== '') {
+                    bodyData.password = password;
+                }
+
+                try {
+                    const res = await fetch(url, {
+                        method,
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(bodyData),
+                        credentials: 'include'
+                    });
+                    const result = await res.json();
+
+                    if (result.success) {
+                        showToast(result.message || 'İşlem tamamlandı.', 'success');
+                        personelModalKapat();
+                        yuklePanel_Personel();
+                    } else {
+                        if (res.status === 401 || res.status === 403) {
+                            window.location.href = '/login';
+                            return;
+                        }
+                        showToast(result.message || 'Bir hata oluştu.', 'error');
+                    }
+                } catch (err) {
+                    showToast('Sunucu bağlantı hatası.', 'error');
+                }
+            });
+        }
+
+        async function personelSil(p) {
+            if (!confirm(`TC: ${p.username} olan personeli silmek istediğinize emin misiniz?\nBu işlem geri alınamaz ve bu personel artık sisteme giriş yapamaz.`)) {
+                return;
+            }
+
+            try {
+                const res = await fetch(`/api/auth/personnel/${p.id}`, {
+                    method: 'DELETE',
+                    credentials: 'include'
+                });
+                const result = await res.json();
+
+                if (result.success) {
+                    showToast(result.message || 'Personel kaydı silindi.', 'success');
+                    yuklePanel_Personel();
+                } else {
+                    if (res.status === 401 || res.status === 403) {
+                        window.location.href = '/login';
+                        return;
+                    }
+                    showToast(result.message || 'Silme işlemi başarısız.', 'error');
+                }
+            } catch (err) {
+                showToast('Sunucu bağlantı hatası.', 'error');
+            }
+        }
+        // ─── GALERİ YÖNETİMİ ───
+        const galeriModal = document.getElementById('admin-galeri-modal');
+        const galeriForm = document.getElementById('admin-galeri-form');
+        const yeniGaleriBtn = document.getElementById('admin-yeni-galeri-btn');
+        const galeriCloseBtn = document.getElementById('admin-galeri-modal-close');
+        const galeriIptalBtn = document.getElementById('admin-galeri-iptal-btn');
+        const galeriKaydetBtn = document.getElementById('admin-galeri-kaydet-btn');
+
+        if (yeniGaleriBtn) {
+            yeniGaleriBtn.addEventListener('click', () => {
+                if (galeriForm) galeriForm.reset();
+                if (galeriModal) galeriModal.classList.add('open');
+            });
+        }
+        if (galeriCloseBtn) galeriCloseBtn.addEventListener('click', () => galeriModal.classList.remove('open'));
+        if (galeriIptalBtn) galeriIptalBtn.addEventListener('click', () => galeriModal.classList.remove('open'));
+        if (galeriModal) galeriModal.addEventListener('click', e => { if (e.target === galeriModal) galeriModal.classList.remove('open'); });
+
+        if (galeriForm) {
+            galeriForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                galeriKaydetBtn.disabled = true;
+                galeriKaydetBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Yükleniyor...';
+                
+                const formData = new FormData(galeriForm);
+                try {
+                    const token = localStorage.getItem('adminToken');
+                    const headers = {};
+                    if (token) headers['Authorization'] = 'Bearer ' + token;
+
+                    const res = await fetch('/api/gallery', {
+                        method: 'POST',
+                        headers,
+                        credentials: 'include',
+                        body: formData
+                    });
+                    const result = await res.json();
+                    if (result.success) {
+                        showToast('Galeri başarıyla eklendi!', 'success');
+                        galeriModal.classList.remove('open');
+                        galeriForm.reset();
+                        yuklePanel_Galeri();
+                    } else {
+                        showToast(result.message || 'Hata oluştu', 'error');
+                    }
+                } catch (err) {
+                    showToast('Sunucu hatası', 'error');
+                } finally {
+                    galeriKaydetBtn.disabled = false;
+                    galeriKaydetBtn.innerHTML = '<i class="fa-solid fa-upload"></i> Yükle';
+                }
+            });
+        }
+
+        async function yuklePanel_Galeri() {
+            const container = document.getElementById('p-gallery-list');
+            if (!container) return;
+            container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-spinner fa-spin"></i><p>Yükleniyor...</p></div>';
+            
+            try {
+                const res = await fetch('/api/gallery');
+                const result = await res.json();
+                if (!result.success || result.data.length === 0) {
+                    container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-image"></i><p>Henüz galeri fotoğrafı yok.</p></div>';
+                    return;
+                }
+                
+                container.innerHTML = '';
+                result.data.forEach(g => {
+                    const card = document.createElement('div');
+                    card.className = 'p-article-card';
+                    card.innerHTML = `
+                        <div class="p-article-card-img" style="display:flex;">
+                            <img src="${g.eski_foto}" style="width:50%; object-fit:cover;" title="Eski Hali">
+                            <img src="${g.yeni_foto}" style="width:50%; object-fit:cover;" title="Yeni Hali">
+                        </div>
+                        <div class="p-article-card-body">
+                            <div class="p-article-card-date"><i class="fa-regular fa-clock"></i> ${new Date(g.olusturma_tarihi).toLocaleDateString('tr-TR')}</div>
+                            <div class="p-article-card-actions">
+                                <button class="p-article-del-btn" data-id="${g.id}">
+                                    <i class="fa-solid fa-trash"></i> Sil
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    card.querySelector('.p-article-del-btn').addEventListener('click', () => galeriSil(g.id));
+                    container.appendChild(card);
+                });
+            } catch (err) {
+                container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-triangle-exclamation"></i><p>Yüklenemedi.</p></div>';
+            }
+        }
+
+        async function galeriSil(id) {
+            if (!confirm('Bu galeri öğesini silmek istediğinize emin misiniz?')) return;
+            try {
+                const token = localStorage.getItem('adminToken');
+                const headers = {};
+                if (token) headers['Authorization'] = 'Bearer ' + token;
+                
+                const res = await fetch('/api/gallery/' + id, {
+                    method: 'DELETE',
+                    headers,
+                    credentials: 'include'
+                });
+                const result = await res.json();
+                if (result.success) {
+                    showToast('Silindi.', 'success');
+                    yuklePanel_Galeri();
+                } else {
+                    showToast(result.message || 'Hata', 'error');
+                }
+            } catch (err) {
+                showToast('Sunucu hatası', 'error');
+            }
+        }
+        // ─── YORUMLAR YÖNETİMİ ───
+        async function yuklePanel_Yorumlar() {
+            const container = document.getElementById('p-yorumlar-list');
+            if (!container) return;
+            container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-spinner fa-spin"></i><p>Yükleniyor...</p></div>';
+            
+            try {
+                const token = localStorage.getItem('adminToken');
+                const headers = {};
+                if (token) headers['Authorization'] = 'Bearer ' + token;
+                
+                const res = await fetch('/api/reviews/admin', { headers, credentials: 'include' });
+                const result = await res.json();
+                
+                if (result.length === 0) {
+                    container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-comments"></i><p>Henüz yorum yapılmamış.</p></div>';
+                    return;
+                }
+                
+                container.innerHTML = '';
+                result.forEach(y => {
+                    const card = document.createElement('div');
+                    card.className = 'p-article-card';
+                    const onayDurumu = y.onaylandi_mi ? '<span style="color:var(--success); font-weight:600;"><i class="fa-solid fa-check"></i> Onaylı (Yayında)</span>' : '<span style="color:var(--warning); font-weight:600;"><i class="fa-solid fa-hourglass-half"></i> Onay Bekliyor</span>';
+                    
+                    card.innerHTML = `
+                        <div class="p-article-card-body" style="padding: 20px;">
+                            <h4 style="margin-bottom:10px; color:var(--primary-dark); font-size: 16px;">${y.isim}</h4>
+                            <p style="font-size:13px; color:var(--text-muted); margin-bottom:15px; line-height: 1.5; font-style: italic;">"${y.yorum}"</p>
+                            <div style="font-size: 12px; margin-bottom: 15px;">Durum: ${onayDurumu}</div>
+                            <div class="p-article-card-date"><i class="fa-regular fa-clock"></i> ${new Date(y.olusturma_tarihi).toLocaleDateString('tr-TR')}</div>
+                            <div class="p-article-card-actions" style="margin-top: 15px;">
+                                ${!y.onaylandi_mi ? `<button class="p-btn-card-billing" onclick="onaylaYorum(${y.id})" style="background: rgba(16,185,129,0.1); color: var(--success);"><i class="fa-solid fa-check"></i> Onayla</button>` : ''}
+                                <button class="p-article-del-btn" onclick="silYorum(${y.id})">
+                                    <i class="fa-solid fa-trash"></i> Sil
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (err) {
+                container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-triangle-exclamation"></i><p>Yüklenemedi.</p></div>';
+            }
+        }
+
+        async function onaylaYorum(id) {
+            if (!confirm('Bu yorumu onaylayıp sitede yayımlamak istediğinize emin misiniz?')) return;
+            try {
+                const token = localStorage.getItem('adminToken');
+                const headers = {};
+                if (token) headers['Authorization'] = 'Bearer ' + token;
+                
+                const res = await fetch('/api/reviews/' + id + '/approve', {
+                    method: 'PUT',
+                    headers,
+                    credentials: 'include'
+                });
+                const result = await res.json();
+                if (res.ok) {
+                    showToast('Yorum onaylandı ve yayına alındı.', 'success');
+                    yuklePanel_Yorumlar();
+                } else {
+                    showToast(result.error || 'Hata', 'error');
+                }
+            } catch (err) {
+                showToast('Sunucu hatası', 'error');
+            }
+        }
+
+        async function silYorum(id) {
+            if (!confirm('Bu yorumu silmek istediğinize emin misiniz?')) return;
+            try {
+                const token = localStorage.getItem('adminToken');
+                const headers = {};
+                if (token) headers['Authorization'] = 'Bearer ' + token;
+                
+                const res = await fetch('/api/reviews/' + id, {
+                    method: 'DELETE',
+                    headers,
+                    credentials: 'include'
+                });
+                const result = await res.json();
+                if (res.ok) {
+                    showToast('Yorum silindi.', 'success');
+                    yuklePanel_Yorumlar();
+                } else {
+                    showToast(result.error || 'Hata', 'error');
+                }
+            } catch (err) {
+                showToast('Sunucu hatası', 'error');
+            }
+        }
+
+        // ─── DOKTOR YÖNETİMİ ───
+        async function yuklePanel_Doktorlar() {
+            const container = document.getElementById('p-doktorlar-list');
+            if (!container) return;
+            container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-spinner fa-spin"></i><p>Yükleniyor...</p></div>';
+            
+            try {
+                const res = await fetch('/api/doctors');
+                const result = await res.json();
+                
+                if (!result.success || result.data.length === 0) {
+                    container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-user-doctor"></i><p>Henüz doktor eklenmemiş.</p></div>';
+                    return;
+                }
+                
+                container.innerHTML = '';
+                result.data.forEach(d => {
+                    const card = document.createElement('div');
+                    card.className = 'p-article-card';
+                    
+                    card.innerHTML = `
+                        <img src="${d.fotograf}" alt="${d.isim}" class="p-article-card-img" style="object-fit: cover; object-position: top;">
+                        <div class="p-article-card-body" style="padding: 15px;">
+                            <h4 style="margin-bottom:5px; color:var(--primary-dark); font-size: 16px;">${d.isim}</h4>
+                            <p style="font-size:13px; color:var(--text-muted); margin-bottom:15px; font-weight: 500;">${d.unvan}</p>
+                            <div class="p-article-card-actions">
+                                <button class="p-article-del-btn" onclick="silDoktor(${d.id})">
+                                    <i class="fa-solid fa-trash"></i> Sil
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (err) {
+                container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-triangle-exclamation"></i><p>Yüklenemedi.</p></div>';
+            }
+        }
+
+        async function silDoktor(id) {
+            if (!confirm('Bu doktoru silmek istediğinize emin misiniz?')) return;
+            try {
+                const token = localStorage.getItem('adminToken');
+                const headers = {};
+                if (token) headers['Authorization'] = 'Bearer ' + token;
+                
+                const res = await fetch('/api/doctors/' + id, {
+                    method: 'DELETE',
+                    headers,
+                    credentials: 'include'
+                });
+                const result = await res.json();
+                if (result.success) {
+                    showToast('Doktor silindi.', 'success');
+                    yuklePanel_Doktorlar();
+                } else {
+                    showToast(result.message || 'Hata', 'error');
+                }
+            } catch (err) {
+                showToast('Sunucu hatası', 'error');
+            }
+        }
+
+        const adminDoktorForm = document.getElementById('admin-doktor-form');
+        if (adminDoktorForm) {
+            adminDoktorForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = adminDoktorForm.querySelector('button[type="submit"]');
+                const oldHtml = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Kaydediliyor...';
+                
+                try {
+                    const token = localStorage.getItem('adminToken');
+                    const formData = new FormData(adminDoktorForm);
+                    
+                    const res = await fetch('/api/doctors', {
+                        method: 'POST',
+                        headers: token ? { 'Authorization': 'Bearer ' + token } : {},
+                        body: formData,
+                        credentials: 'include'
+                    });
+                    
+                    const result = await res.json();
+                    
+                    if (result.success) {
+                        showToast('Doktor eklendi.', 'success');
+                        document.getElementById('admin-doktor-modal').classList.remove('open');
+                        yuklePanel_Doktorlar();
+                    } else {
+                        showToast(result.message || 'Hata oluştu.', 'error');
+                    }
+                } catch (err) {
+                    showToast('Bağlantı hatası.', 'error');
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = oldHtml;
+                }
+            });
+        }
+
+        // ─── FAQ YÖNETİMİ ───
+        async function yuklePanel_FAQ() {
+            const container = document.getElementById('p-faq-list');
+            if (!container) return;
+            container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-spinner fa-spin"></i><p>Yükleniyor...</p></div>';
+            
+            try {
+                const token = localStorage.getItem('adminToken');
+                const res = await fetch('/api/faq', {
+                    headers: token ? { 'Authorization': 'Bearer ' + token } : {}
+                });
+                const result = await res.json();
+                
+                if (!result.success || result.data.length === 0) {
+                    container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-circle-question"></i><p>Henüz soru bulunmuyor.</p></div>';
+                    return;
+                }
+                
+                container.innerHTML = '';
+                result.data.forEach(q => {
+                    const card = document.createElement('div');
+                    card.className = 'p-article-card';
+                    card.style.display = 'flex';
+                    card.style.flexDirection = 'column';
+                    
+                    const isYayinda = q.durum === 'yayinda';
+                    const badgeStr = isYayinda ? 
+                        '<span style="background:var(--success); color:#fff; padding:2px 8px; border-radius:12px; font-size:11px;">Yayında</span>' : 
+                        '<span style="background:var(--warning); color:#fff; padding:2px 8px; border-radius:12px; font-size:11px;">Cevap Bekliyor</span>';
+                    
+                    card.innerHTML = `
+                        <div class="p-article-card-body" style="padding: 15px; flex-grow:1;">
+                            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+                                <h4 style="margin:0; color:var(--primary-dark); font-size: 15px;">${q.hasta_adi}</h4>
+                                ${badgeStr}
+                            </div>
+                            <p style="font-size:14px; color:var(--text); margin-bottom:10px; font-weight:600;">Soru: ${q.soru}</p>
+                            ${isYayinda ? `<p style="font-size:13px; color:var(--text-muted); background:var(--bg3); padding:10px; border-radius:6px; border-left:3px solid var(--primary);"><strong>Cevap:</strong> ${q.cevap}</p>` : ''}
+                            
+                            <div class="p-article-card-actions" style="margin-top:15px; justify-content:flex-end;">
+                                ${!isYayinda ? `
+                                    <button class="p-btn" style="padding:6px 12px; font-size:12px; margin-right:10px;" onclick="acFaqModal(${q.id}, \`${q.soru.replace(/"/g, '&quot;')}\`)">
+                                        <i class="fa-solid fa-reply"></i> Cevapla
+                                    </button>
+                                ` : ''}
+                                <button class="p-article-del-btn" onclick="silFAQ(${q.id})">
+                                    <i class="fa-solid fa-trash"></i> Sil
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (err) {
+                container.innerHTML = '<div class="p-empty"><i class="fa-solid fa-triangle-exclamation"></i><p>Yüklenemedi.</p></div>';
+            }
+        }
+
+        function acFaqModal(id, soru) {
+            document.getElementById('faq-id').value = id;
+            document.getElementById('faq-soru-text').textContent = soru;
+            document.getElementById('faq-cevap').value = '';
+            document.getElementById('admin-faq-modal').classList.add('open');
+        }
+
+        const adminFaqForm = document.getElementById('admin-faq-form');
+        if (adminFaqForm) {
+            adminFaqForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const id = document.getElementById('faq-id').value;
+                const cevap = document.getElementById('faq-cevap').value;
+                const btn = adminFaqForm.querySelector('button[type="submit"]');
+                const oldHtml = btn.innerHTML;
+                
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> İşleniyor...';
+                
+                try {
+                    const token = localStorage.getItem('adminToken');
+                    const res = await fetch('/api/faq/' + id + '/cevapla', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            ...(token ? { 'Authorization': 'Bearer ' + token } : {})
+                        },
+                        body: JSON.stringify({ cevap }),
+                        credentials: 'include'
+                    });
+                    const result = await res.json();
+                    
+                    if (res.ok) {
+                        showToast('Soru cevaplandı ve yayınlandı.', 'success');
+                        document.getElementById('admin-faq-modal').classList.remove('open');
+                        yuklePanel_FAQ();
+                    } else {
+                        showToast(result.error || 'Hata oluştu.', 'error');
+                    }
+                } catch (err) {
+                    showToast('Sunucu hatası', 'error');
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = oldHtml;
+                }
+            });
+        }
+
+        async function silFAQ(id) {
+            if (!confirm('Bu soruyu silmek istediğinize emin misiniz?')) return;
+            try {
+                const token = localStorage.getItem('adminToken');
+                const res = await fetch('/api/faq/' + id, {
+                    method: 'DELETE',
+                    headers: token ? { 'Authorization': 'Bearer ' + token } : {},
+                    credentials: 'include'
+                });
+                const result = await res.json();
+                if (res.ok) {
+                    showToast('Soru silindi.', 'success');
+                    yuklePanel_FAQ();
+                } else {
+                    showToast(result.error || 'Hata', 'error');
+                }
+            } catch (err) {
+                showToast('Sunucu hatası', 'error');
+            }
         }
     </script>
 </body>

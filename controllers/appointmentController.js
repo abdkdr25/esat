@@ -163,6 +163,14 @@ exports.getAllAppointments = async (req, res) => {
         });
     } catch (err) {
         console.error("getAllAppointments ERROR:", err);
+        // DB bağlantısı yoksa boş veri dön (çevrimdışı mod)
+        if (err.code === 'ECONNREFUSED' || err.code === 'PROTOCOL_CONNECTION_LOST') {
+            return res.json({
+                success: true,
+                data: [],
+                pagination: { toplam: 0, sayfa: 1, toplamSayfa: 0, sayfaBasina: 10 }
+            });
+        }
         res.status(500).json({ success: false, message: err.sqlMessage || 'Sunucu hatası' });
     }
 };
