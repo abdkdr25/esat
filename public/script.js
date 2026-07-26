@@ -1256,14 +1256,14 @@ if (hastaSoruForm) {
             const result = await res.json();
             
             if (res.ok) {
-                alert('Sorunuz başarıyla iletildi. Doktorumuz tarafından cevaplandığında yayına alınacaktır.');
+                Swal.fire({title: 'Bilgi', text: 'Sorunuz başarıyla iletildi. Doktorumuz tarafından cevaplandığında yayına alınacaktır.', icon: 'info', confirmButtonText: 'Tamam', confirmButtonColor: '#00b4d8'});
                 kapatSoruModal();
                 hastaSoruForm.reset();
             } else {
-                alert(result.error || 'Gönderim sırasında hata oluştu.');
+                Swal.fire({title: 'Hata', text: result.error || 'Gönderim sırasında hata oluştu.', icon: 'error', confirmButtonText: 'Tamam', confirmButtonColor: '#ef4444'});
             }
         } catch (err) {
-            alert('Sunucu bağlantı hatası.');
+            Swal.fire({title: 'Bilgi', text: 'Sunucu bağlantı hatası.', icon: 'info', confirmButtonText: 'Tamam', confirmButtonColor: '#00b4d8'});
         } finally {
             btn.disabled = false;
             btn.innerHTML = oldHtml;
@@ -1379,13 +1379,13 @@ if (publicReviewForm) {
             const result = await res.json();
             
             if (res.ok) {
-                alert('Yorumunuz başarıyla gönderildi. Yönetici onayından sonra yayımlanacaktır. Teşekkür ederiz!');
+                Swal.fire({title: 'Bilgi', text: 'Yorumunuz başarıyla gönderildi. Yönetici onayından sonra yayımlanacaktır. Teşekkür ederiz!', icon: 'info', confirmButtonText: 'Tamam', confirmButtonColor: '#00b4d8'});
                 publicReviewForm.reset();
             } else {
-                alert(result.error || 'Hata oluştu.');
+                Swal.fire({title: 'Hata', text: result.error || 'Hata oluştu.', icon: 'error', confirmButtonText: 'Tamam', confirmButtonColor: '#ef4444'});
             }
         } catch (err) {
-            alert('Bağlantı hatası.');
+            Swal.fire({title: 'Bilgi', text: 'Bağlantı hatası.', icon: 'info', confirmButtonText: 'Tamam', confirmButtonColor: '#00b4d8'});
         } finally {
             btn.disabled = false;
             btn.innerHTML = oHtml;

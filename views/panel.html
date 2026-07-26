@@ -1425,6 +1425,7 @@
             transform: translateX(2px);
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -2013,7 +2014,7 @@
             var password = passwordInput ? passwordInput.value : '';
 
             if (username.length !== 11 || !/^\d+$/.test(username)) {
-                alert('Kullanıcı adı (TC Kimlik No) 11 haneli sayı olmalıdır.');
+                Swal.fire({title: 'Bilgi', text: 'Kullanıcı adı (TC Kimlik No) 11 haneli sayı olmalıdır.', icon: 'info', confirmButtonText: 'Tamam', confirmButtonColor: '#00b4d8'});
                 return;
             }
 
@@ -2031,14 +2032,14 @@
                 });
                 var result = await res.json();
                 if (result.success) {
-                    alert(result.message || 'İşlem tamamlandı.');
+                    Swal.fire({title: 'Bilgi', text: result.message || 'İşlem tamamlandı.', icon: 'info', confirmButtonText: 'Tamam', confirmButtonColor: '#00b4d8'});
                     document.getElementById('admin-personel-modal').classList.remove('open');
                     window.location.reload();
                 } else {
-                    alert(result.message || 'Bir hata oluştu.');
+                    Swal.fire({title: 'Bilgi', text: result.message || 'Bir hata oluştu.', icon: 'info', confirmButtonText: 'Tamam', confirmButtonColor: '#00b4d8'});
                 }
             } catch (err) {
-                alert('Sunucu bağlantı hatası.');
+                Swal.fire({title: 'Bilgi', text: 'Sunucu bağlantı hatası.', icon: 'info', confirmButtonText: 'Tamam', confirmButtonColor: '#00b4d8'});
             }
         });
     })();
@@ -2217,7 +2218,17 @@
         }
 
         async function makaleSil(id) {
-            if (!confirm('Bu makaleyi silmek istediğinize emin misiniz?')) return;
+            const { isConfirmed } = await Swal.fire({
+                title: 'Emin misiniz?',
+                text: 'Bu makaleyi silmek istediğinize emin misiniz?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Evet, Onaylıyorum',
+                cancelButtonText: 'İptal'
+            });
+            if (!isConfirmed) return;
             try {
                 const token = localStorage.getItem('adminToken');
                 const headers = {};
@@ -2956,9 +2967,17 @@
         }
 
         async function personelSil(p) {
-            if (!confirm(`TC: ${p.username} olan personeli silmek istediğinize emin misiniz?\nBu işlem geri alınamaz ve bu personel artık sisteme giriş yapamaz.`)) {
-                return;
-            }
+            const { isConfirmed } = await Swal.fire({
+                title: 'Emin misiniz?',
+                text: `TC: ${p.username} olan personeli silmek istediğinize emin misiniz?\nBu işlem geri alınamaz ve bu personel artık sisteme giriş yapamaz.`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Evet, Sil',
+                cancelButtonText: 'İptal'
+            });
+            if (!isConfirmed) return;
 
             try {
                 const res = await fetch(`/api/auth/personnel/${p.id}`, {
@@ -3075,7 +3094,17 @@
         }
 
         async function galeriSil(id) {
-            if (!confirm('Bu galeri öğesini silmek istediğinize emin misiniz?')) return;
+            const { isConfirmed } = await Swal.fire({
+                title: 'Emin misiniz?',
+                text: 'Bu galeri öğesini silmek istediğinize emin misiniz?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Evet, Onaylıyorum',
+                cancelButtonText: 'İptal'
+            });
+            if (!isConfirmed) return;
             try {
                 const token = localStorage.getItem('adminToken');
                 const headers = {};
@@ -3144,7 +3173,17 @@
         }
 
         async function onaylaYorum(id) {
-            if (!confirm('Bu yorumu onaylayıp sitede yayımlamak istediğinize emin misiniz?')) return;
+            const { isConfirmed } = await Swal.fire({
+                title: 'Emin misiniz?',
+                text: 'Bu yorumu onaylayıp sitede yayımlamak istediğinize emin misiniz?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Evet, Onaylıyorum',
+                cancelButtonText: 'İptal'
+            });
+            if (!isConfirmed) return;
             try {
                 const token = localStorage.getItem('adminToken');
                 const headers = {};
@@ -3168,7 +3207,17 @@
         }
 
         async function silYorum(id) {
-            if (!confirm('Bu yorumu silmek istediğinize emin misiniz?')) return;
+            const { isConfirmed } = await Swal.fire({
+                title: 'Emin misiniz?',
+                text: 'Bu yorumu silmek istediğinize emin misiniz?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Evet, Onaylıyorum',
+                cancelButtonText: 'İptal'
+            });
+            if (!isConfirmed) return;
             try {
                 const token = localStorage.getItem('adminToken');
                 const headers = {};
@@ -3231,7 +3280,17 @@
         }
 
         async function silDoktor(id) {
-            if (!confirm('Bu doktoru silmek istediğinize emin misiniz?')) return;
+            const { isConfirmed } = await Swal.fire({
+                title: 'Emin misiniz?',
+                text: 'Bu doktoru silmek istediğinize emin misiniz?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Evet, Onaylıyorum',
+                cancelButtonText: 'İptal'
+            });
+            if (!isConfirmed) return;
             try {
                 const token = localStorage.getItem('adminToken');
                 const headers = {};
@@ -3399,7 +3458,17 @@
         }
 
         async function silFAQ(id) {
-            if (!confirm('Bu soruyu silmek istediğinize emin misiniz?')) return;
+            const { isConfirmed } = await Swal.fire({
+                title: 'Emin misiniz?',
+                text: 'Bu soruyu silmek istediğinize emin misiniz?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonColor: '#64748b',
+                confirmButtonText: 'Evet, Onaylıyorum',
+                cancelButtonText: 'İptal'
+            });
+            if (!isConfirmed) return;
             try {
                 const token = localStorage.getItem('adminToken');
                 const res = await fetch('/api/faq/' + id, {
