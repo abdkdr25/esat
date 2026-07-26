@@ -292,8 +292,9 @@ function showToast(message, type = 'info') {
 }
 
 
-async function saatleriGetir(tarih) {
-    const saatSelect = document.getElementById('saat');
+async function saatleriGetir(tarih, selectId = 'saat') {
+    const saatSelect = document.getElementById(selectId);
+    if (!saatSelect) return;
     saatSelect.innerHTML = '<option value="">Yükleniyor...</option>';
     saatSelect.disabled = true;
 

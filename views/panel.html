@@ -2546,12 +2546,26 @@
         const adminRandevuForm = document.getElementById('admin-randevu-form');
         const yeniRandevuBtn = document.getElementById('admin-yeni-randevu-btn');
 
+        const adminRandevuTarih = document.getElementById('admin-randevu-tarih');
+        if (adminRandevuTarih) {
+            const bugunStr = new Date().toISOString().split('T')[0];
+            adminRandevuTarih.setAttribute('min', bugunStr);
+            adminRandevuTarih.addEventListener('change', async (e) => {
+                if (e.target.value && typeof saatleriGetir === 'function') {
+                    await saatleriGetir(e.target.value, 'admin-randevu-saat');
+                }
+            });
+        }
+
         if (yeniRandevuBtn) {
-            yeniRandevuBtn.addEventListener('click', () => {
+            yeniRandevuBtn.addEventListener('click', async () => {
                 adminRandevuForm.reset();
                 const bugunStr = new Date().toISOString().split('T')[0];
-                document.getElementById('admin-randevu-tarih').value = bugunStr;
+                if (adminRandevuTarih) adminRandevuTarih.value = bugunStr;
                 adminRandevuModal.classList.add('open');
+                if (typeof saatleriGetir === 'function') {
+                    await saatleriGetir(bugunStr, 'admin-randevu-saat');
+                }
             });
         }
 
