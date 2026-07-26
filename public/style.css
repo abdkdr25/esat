@@ -3485,30 +3485,35 @@ body.dark-mode .saat-btn.disabled {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid transparent;
-    border-top-color: #004d7a;
-    border-bottom-color: #00b4d8;
-    animation: spin-modern 1.2s cubic-bezier(0.6, 0.2, 0.4, 0.8) infinite;
+    background-color: #00b4d8;
+    animation: modern-ripple 1.2s infinite ease-in-out;
     position: relative;
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.4);
 }
 
 .spinner::before {
     content: '';
     position: absolute;
-    top: 6px;
-    left: 6px;
-    right: 6px;
-    bottom: 6px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-radius: 50%;
-    border: 2px solid transparent;
-    border-top-color: #00b4d8;
-    border-bottom-color: #004d7a;
-    animation: spin-modern 0.8s linear infinite reverse;
+    background-color: #004d7a;
+    animation: modern-ripple 1.2s infinite ease-in-out;
+    animation-delay: -0.6s;
+    opacity: 0;
 }
 
-@keyframes spin-modern {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes modern-ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
 }
 
 .footer-address-link {
