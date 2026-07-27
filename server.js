@@ -29,10 +29,18 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());   // ← Cookie okuma için gerekli
 
-// Statik Dosyalar (Frontend) — panel.html ve login.html artık burada değil
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/resimler', express.static(path.join(__dirname, 'resimler')));
-app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
+// Statik Dosyalar (Frontend)
+const staticOptions = {
+    setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.html')) res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        else if (filePath.endsWith('.js')) res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+        else if (filePath.endsWith('.css')) res.setHeader('Content-Type', 'text/css; charset=utf-8');
+    }
+};
+
+app.use(express.static(path.join(__dirname, 'public'), staticOptions));
+app.use('/resimler', express.static(path.join(__dirname, 'resimler'), staticOptions));
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads'), staticOptions));
 
 // Korumalı Sayfa Rotaları (önce gelsin — /login ve /yonetim-paneli)
 app.use('/', pageRoutes);
