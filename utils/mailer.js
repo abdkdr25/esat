@@ -37,10 +37,10 @@ const sendAppointmentEmail = async (ad, email, tarih, saat) => {
 
                         <!-- Location & Button -->
                         <h4 style="margin: 0 0 10px 0; color: #333333; font-size: 18px;">Klinik Konumu:</h4>
-                        <p style="margin: 0 0 25px 0; color: #777777; font-size: 15px; line-height: 1.5;">Merkez Mah. Atatürk Cad. No:1, Şişli/İstanbul<br>İletişim: <strong>0555 123 45 67</strong></p>
+                        <p style="margin: 0 0 25px 0; color: #777777; font-size: 15px; line-height: 1.5;">60.yıl mahallesi yavuz sultan selim caddesi No:121/b<br>İletişim: <strong>0536 653 97 95</strong></p>
                         
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="https://www.google.com/maps/search/?api=1&query=P%C4%B1rlanta+d%C3%BC%C4%9F%C3%BCn+salonu+yan%C4%B1,+60.+Y%C4%B1l,+Yavuz+Sultan+Selim+Cd.+No%3A107A,+27100+%C5%9Eahinbey%2Fİstanbul" style="display: inline-block; background-color: #ffffff; color: #00b4d8; text-decoration: none; padding: 12px 20px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 2px solid #00b4d8; margin: 5px;" target="_blank">📍 Google Haritalar</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=60.y%C4%B1l+mahallesi+yavuz+sultan+selim+caddesi+No%3A121%2Fb" style="display: inline-block; background-color: #ffffff; color: #00b4d8; text-decoration: none; padding: 12px 20px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 2px solid #00b4d8; margin: 5px;" target="_blank">📍 Google Haritalar</a>
                             <a href="http://maps.apple.com/?q=P%C4%B1rlanta+d%C3%BC%C4%9F%C3%BCn+salonu+yan%C4%B1,+60.+Y%C4%B1l,+Yavuz+Sultan+Selim+Cd.+No%3A107A,+27100+%C5%9Eahinbey%2Fİstanbul" style="display: inline-block; background-color: #00b4d8; color: #ffffff; text-decoration: none; padding: 12px 20px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 2px solid #00b4d8; margin: 5px;" target="_blank">🍏 Apple Haritalar</a>
                         </div>
                     </div>

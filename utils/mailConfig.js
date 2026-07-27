@@ -1,4 +1,4 @@
-﻿const fetch = global.fetch;
+const fetch = global.fetch;
 
 /**
  * Hastaya randevu bilgilendirme maili gönderir.
@@ -83,13 +83,12 @@ const sendAppointmentEmail = async (ad, email, tarih, saat) => {
                     <h3 class="location-title">Klinik Adresimiz</h3>
                     <div class="address-box">
                         <strong>Esat Kılınç Diş Kliniği Diş Sağlığı Merkezi</strong><br>
-                        Pırlanta düğün salonu yanı, Merkez Mah. Atatürk Cad. No:1<br>
-                        27100 Şişli / İstanbul<br><br>
-                        İletişim: <strong>0555 123 45 67</strong>
+                        Pırlanta düğün salonu yanı, 60.yıl mahallesi yavuz sultan selim caddesi No:121/b27100 Şişli / İstanbul<br><br>
+                        İletişim: <strong>0536 653 97 95</strong>
                     </div>
                     
                     <div style="text-align: center; margin-top: 25px;">
-                        <a href="https://www.google.com/maps/search/?api=1&query=P%C4%B1rlanta+d%C3%BC%C4%9F%C3%BCn+salonu+yan%C4%B1,+60.+Y%C4%B1l,+Yavuz+Sultan+Selim+Cd.+No%3A107A,+27100+%C5%9Eahinbey%2Fİstanbul" class="btn-maps" target="_blank">Haritada Konuma Git</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=60.y%C4%B1l+mahallesi+yavuz+sultan+selim+caddesi+No%3A121%2Fb" class="btn-maps" target="_blank">Haritada Konuma Git</a>
                     </div>
                 </div>
                 
