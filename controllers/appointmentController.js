@@ -1,41 +1,50 @@
 const { pool } = require('../config/db');
 const { sendAppointmentEmail } = require('../utils/mailConfig');
 
+const { z } = require('zod');
+const xss = require('xss');
+
+const appointmentSchema = z.object({
+    ad: z.string().min(2, "Ad soyad en az 2 karakter olmalıdır").max(100, "Ad soyad en fazla 100 karakter olmalıdır"),
+    telefon: z.string().regex(/^\d{11}$/, "Telefon numarası 11 haneli ve sadece rakam olmalıdır"),
+    email: z.string().email("Geçersiz e-posta adresi").optional().or(z.literal('')),
+    tarih: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Geçersiz tarih formatı"),
+    saat: z.string().regex(/^\d{2}:\d{2}$/, "Geçersiz saat formatı"),
+    notlar: z.string().max(300, "Notlar en fazla 300 karakter olabilir").optional().or(z.literal('')),
+    isKvkkAccepted: z.boolean().refine(val => val === true, "KVKK aydınlatma metnini onaylamanız gerekmektedir.")
+});
+
 // PUBLIC: Yeni randevu talebi oluştur
 exports.createAppointment = async (req, res) => {
     try {
-        const { ad, telefon, email, tarih, saat, notlar } = req.body;
+        const { ad, telefon, email, tarih, saat, notlar, isKvkkAccepted } = req.body;
 
-        // 1. Temel Validasyonlar
-        if (!ad || !telefon || !tarih || !saat) {
-            return res.status(400).json({ success: false, message: "Zorunlu alanlar eksik" });
+        const temizTelefon = telefon ? telefon.toString().replace(/\s/g, '') : '';
+        const kvkkOnayi = isKvkkAccepted === true || isKvkkAccepted === 'true' || isKvkkAccepted === 'on';
+
+        // 1. Zod ile Validasyon ve XSS Sanitization
+        const validationResult = appointmentSchema.safeParse({
+            ad: ad ? xss(ad.trim()) : '',
+            telefon: temizTelefon,
+            email: email ? xss(email.trim()) : '',
+            tarih,
+            saat,
+            notlar: notlar ? xss(notlar.trim()) : '',
+            isKvkkAccepted: kvkkOnayi
+        });
+
+        if (!validationResult.success) {
+            return res.status(400).json({ 
+                success: false, 
+                message: validationResult.error.errors[0].message 
+            });
         }
 
-        const temizTelefon = telefon.toString().replace(/\s/g, '');
-        if (!/^\d+$/.test(temizTelefon) || temizTelefon.length !== 11) {
-            return res.status(400).json({ success: false, message: "Telefon numarası 11 haneli ve sadece rakam olmalıdır" });
-        }
-
-        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            return res.status(400).json({ success: false, message: "Geçersiz e-posta adresi" });
-        }
-
-        const temizAd = ad.trim().replace(/[<>]/g, '');
-        if (temizAd.length < 2 || temizAd.length > 100) {
-            return res.status(400).json({ success: false, message: "Ad soyad 2-100 karakter arasında olmalıdır" });
-        }
-
-        if (!/^\d{4}-\d{2}-\d{2}$/.test(tarih)) {
-            return res.status(400).json({ success: false, message: "Geçersiz tarih formatı" });
-        }
-
-        if (!/^\d{2}:\d{2}$/.test(saat)) {
-            return res.status(400).json({ success: false, message: "Geçersiz saat formatı" });
-        }
+        const validData = validationResult.data;
 
         const bugun = new Date();
         bugun.setHours(0, 0, 0, 0);
-        const randevuTarihi = new Date(tarih);
+        const randevuTarihi = new Date(validData.tarih);
         randevuTarihi.setHours(0, 0, 0, 0);
 
         if (randevuTarihi < bugun) {
@@ -45,7 +54,7 @@ exports.createAppointment = async (req, res) => {
         // 2. Çakışma Kontrolü (Veritabanı) - Hem Approved hem Pending olanları kontrol et
         const [exists] = await pool.query(
             `SELECT id FROM randevular WHERE tarih = ? AND saat = ? AND durum IN ('approved', 'pending')`,
-            [tarih, saat]
+            [validData.tarih, validData.saat]
         );
 
         if (exists.length > 0) {
@@ -53,17 +62,14 @@ exports.createAppointment = async (req, res) => {
         }
 
         // 3. Veritabanına Kayıt (Pending olarak)
-        const temizNotlar = notlar ? notlar.trim().replace(/[<>]/g, '').substring(0, 300) : null;
-
-        // Her zaman yeni bir randevu satırı oluştur (Eski iptal edilenler tarihte kalır)
         const [result] = await pool.query(
             `INSERT INTO randevular (ad, telefon, email, tarih, saat, notlar, durum) VALUES (?, ?, ?, ?, ?, ?, 'pending')`,
-            [temizAd, temizTelefon, email ? email.trim() : null, tarih, saat, temizNotlar]
+            [validData.ad, validData.telefon, validData.email || null, validData.tarih, validData.saat, validData.notlar || null]
         );
         const insertId = result.insertId;
 
         // Randevu başarıyla veritabanına kaydedildikten sonra arka planda mail gönder
-        sendAppointmentEmail(temizAd, email ? email.trim() : null, tarih, saat);
+        sendAppointmentEmail(validData.ad, validData.email || null, validData.tarih, validData.saat);
 
         res.json({ success: true, message: "Randevu talebiniz alınmıştır.", id: insertId });
 

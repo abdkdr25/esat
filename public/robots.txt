@@ -1,10 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin
 Disallow: /api/
-Disallow: /yonetim-paneli
-Disallow: /login
-Disallow: /tmp/
-Disallow: /*?*
-
-Sitemap: https://www.muhammeteminbasyildiz.com/sitemap.xml
-
+Sitemap: https://www.esatkilinc.com/sitemap.xml

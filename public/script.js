@@ -210,6 +210,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const kvkkModal = document.getElementById('kvkk-modal');
+    const openKvkkBtns = document.querySelectorAll('.open-kvkk-modal');
+    const closeKvkkBtn = document.getElementById('close-kvkk-modal');
+
+    openKvkkBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (kvkkModal) kvkkModal.classList.add('active');
+        });
+    });
+
+    if (closeKvkkBtn) {
+        closeKvkkBtn.addEventListener('click', () => {
+            if (kvkkModal) kvkkModal.classList.remove('active');
+        });
+    }
+
+    if (kvkkModal) {
+        kvkkModal.addEventListener('click', function (e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+    }
+
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileDrawer = document.getElementById('mobile-drawer');
     const mobileOverlay = document.getElementById('mobile-overlay');
@@ -368,6 +393,12 @@ async function handleRandevuSubmit(e) {
     const telefon = document.getElementById('telefon').value.replace(/\s/g, '');
     if (!/^\d{11}$/.test(telefon)) {
         showToast("Lütfen geçerli, 11 haneli bir telefon numarası giriniz.", 'error');
+        return;
+    }
+
+    const isKvkkAccepted = document.getElementById('isKvkkAccepted');
+    if (isKvkkAccepted && !isKvkkAccepted.checked) {
+        showToast("Lütfen KVKK Aydınlatma Metni'ni okuyup onaylayın.", 'error');
         return;
     }
 

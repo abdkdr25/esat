@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 
 <head>
@@ -177,6 +177,11 @@
                                 <textarea id="notlar" name="notlar" rows="3" data-i18n-placeholder="app-form-notes"></textarea>
                             </div>
 
+                            <div class="form-group" style="flex-direction: row; align-items: center; gap: 10px; margin-top: 15px;">
+                                <input type="checkbox" id="isKvkkAccepted" name="isKvkkAccepted" required style="width: auto;">
+                                <label for="isKvkkAccepted" style="font-size: 14px; margin-bottom: 0;"><a href="#" class="open-kvkk-modal" style="color: var(--primary); text-decoration: underline;">KVKK Aydınlatma Metni ve Gizlilik Politikası</a>'nı okudum, kişisel verilerimin işlenmesini kabul ediyorum.</label>
+                            </div>
+
                             <button type="submit" class="btn-primary" data-i18n="btn-app-submit">Randevuyu Onayla</button>
                         </form>
                     </div>
@@ -241,6 +246,19 @@
     <a href="https://wa.me/905551234567" target="_blank" class="whatsapp-btn" title="WhatsApp ile İletişime Geçin">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
+
+    <!-- KVKK Modal -->
+    <div class="service-modal" id="kvkk-modal">
+        <div class="service-modal-content">
+            <button class="service-modal-close" id="close-kvkk-modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="service-modal-body">
+                <h3>KVKK Aydınlatma Metni ve Gizlilik Politikası</h3>
+                <p>Kişisel verileriniz, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında kliniğimiz tarafından işlenmektedir. Amacımız, size daha iyi sağlık hizmeti sunmak ve randevu süreçlerini yönetmektir.</p>
+                <p>Verileriniz, yalnızca yasal zorunluluklar çerçevesinde ve sağlık hizmeti sunumu amacıyla kullanılacak olup, üçüncü şahıslarla paylaşılmayacaktır.</p>
+                <p>Detaylı bilgi için kliniğimizle iletişime geçebilirsiniz.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="translations.js"></script>
     <script src="theme-lang.js"></script>
