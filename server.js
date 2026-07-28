@@ -66,6 +66,19 @@ app.get('/ping', async (req, res) => {
     }
 });
 
+// Otomatik Yedekleme (Her gece saat 03:00'da)
+const cron = require('node-cron');
+const { backup } = require('./utils/backupToTelegram');
+
+cron.schedule('0 3 * * *', () => {
+    console.log('⏰ Otomatik yedekleme tetiklendi (Saat 03:00)');
+    backup();
+}, {
+    scheduled: true,
+    timezone: "Europe/Istanbul"
+});
+
+
 // Veritabanını Başlat ve Sunucuyu Dinle
 initDb()
     .then(() => {

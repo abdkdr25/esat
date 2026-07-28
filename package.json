@@ -25,6 +25,7 @@
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.2.0",
     "mysql2": "^3.20.0",
+    "node-cron": "^4.6.0",
     "nodemailer": "^8.0.4",
     "xss": "^1.0.15",
     "zod": "^4.4.3"
